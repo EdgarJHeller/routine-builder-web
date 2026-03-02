@@ -1,7 +1,7 @@
 # ⚡ Workout Editor
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg?style=flat-square)](LICENSE)
-[![Live Demo](https://img.shields.io/badge/Live-Demo-green.svg?style=flat-square)](https://your-vercel-url.vercel.app)
+[![Live Demo](https://img.shields.io/badge/Live-Demo-green.svg?style=flat-square)](https://routine.hejh.me)
 
 A minimalist, high-contrast workout routine builder and timer. Designed for focus, this app avoids the clutter of exercise videos and ads, providing a "Zen" experience for athletes who know their form and just want to get the work done.
 

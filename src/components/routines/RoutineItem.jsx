@@ -1,5 +1,6 @@
 import {List, Share2, Trash2} from "lucide-react";
 import React from "react";
+import {formatDuration} from "../../utils/formatDuration.js";
 
 const RoutineItem = ({routine, t, onSelect, onDelete}) => {
 
@@ -28,12 +29,15 @@ const RoutineItem = ({routine, t, onSelect, onDelete}) => {
                     <List size={24}/>
                 </div>
                 <div>
-            <span className="font-bold text-content-primary block text-lg">
-                {routine.name || t.ui.unnamedRoutine}
-            </span>
-                    <span className="text-xs text-content-secondary font-bold uppercase tracking-wider mt-1 block">
-                {routine.exercises?.length || 0} {t.ui.exercises || "Exercises"}
-            </span>
+                    <span className="font-bold text-content-primary block text-lg">
+                        {routine.name || t.ui.unnamedRoutine}
+                    </span>
+                    <span className="text-xs text-content-secondary font-bold tracking-wider mt-1 block">
+                        {routine.exercises?.length || 0}{" "}
+                        {routine.exercises?.length === 1 ? t.ui.exercise || "Exercise" : t.ui.exercises || "Exercises"}
+                        {" · "}
+                        {formatDuration(routine.exercises)}
+                    </span>
                 </div>
             </button>
 

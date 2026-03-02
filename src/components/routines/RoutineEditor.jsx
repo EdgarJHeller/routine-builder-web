@@ -6,6 +6,7 @@ import {translations} from "../../locales/index.js";
 import DeleteConfirmModal from "../common/DeleteConfirmModal.jsx";
 import ExerciseItem from "../exercises/ExerciseItem.jsx";
 import ExerciseModal from "../exercises/ExerciseModal.jsx";
+import {Footer} from "../common/Footer.jsx";
 
 const RoutineEditor = ({
                            exercises = [],
@@ -171,16 +172,7 @@ const RoutineEditor = ({
                 onConfirm={confirmDelete}
             />
 
-            <footer className="absolute bottom-8 w-full flex justify-center gap-6 text-content-muted text-xs">
-                <button onClick={() => onOpenLegal("impressum")}
-                        className="hover:underline focus:ring-2 focus:ring-brand">
-                    {t.ui.imprint}
-                </button>
-                <button onClick={() => onOpenLegal("privacy")}
-                        className="hover:underline focus:ring-2 focus:ring-brand">
-                    {t.ui.privacy}
-                </button>
-            </footer>
+            <Footer onOpenLegal={onOpenLegal} t={t}/>
         </div>
     );
 };

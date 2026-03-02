@@ -1,0 +1,49 @@
+{
+  "timer": {
+    "next": "Nächste Übung:",
+    "switch": "Seite wechseln!",
+    "switchNow": "Jetzt Seite wechseln!",
+    "complete": "Training beendet!"
+  },
+  "ui": {
+    "editorTitle": "Workout Editor",
+    "editorSubtitle": "Gestalte deine Routine",
+    "addExercise": "Übung hinzufügen",
+    "newExercise": "Neue Übung",
+    "editExercise": "Übung bearbeiten",
+    "saveChanges": "Änderungen speichern",
+    "cancel": "Abbrechen",
+    "startWorkout": "Training starten",
+    "sideSwitchLabel": "Seitenwechsel nach der Hälfte?",
+    "deleteConfirm": "Übung löschen?",
+    "deleteWarning": "Bist du sicher, dass du diese Übung löschen willst: ",
+    "deleteButton": "Löschen",
+    "workoutScreenTitle": "Übung läuft",
+    "workoutScreenNextUp": "Nächste Übung",
+    "placeholder": {
+      "name": "Name der Übung",
+      "duration": "Sekunden"
+    },
+    "start": "Start",
+    "pause": "Pause",
+    "reset": "Reset",
+    "save": "Speichern",
+    "add": "Hinzufügen",
+    "startRoutine": "Beginne Routine",
+    "imprint": "Impressum",
+    "privacy": "Datenschutz",
+    "back": "Zurück",
+    "exercises": "Übungen",
+    "libraryTitle": "Meine Routinen",
+    "librarySubtitle": "Wähle oder erstelle ein Workout",
+    "addRoutine": "Routine hinzufügen",
+    "editRoutineName": "Routine umbenennen",
+    "routineNameLabel": "Routinen-Name",
+    "deleteRoutineConfirm": "Möchtest du die Routine '{name}' wirklich löschen?",
+    "linkCopied": "Link in die Zwischenablage kopiert!",
+    "unnamedRoutine": "Unbenannte Routine",
+    "importedSuffix": " (Importiert)",
+    "importSuccess": "Erfolg! '{name}' wurde importiert.",
+    "importError": "Ungültiger oder fehlerhafter Link."
+  }
+}

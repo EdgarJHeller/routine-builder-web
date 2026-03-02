@@ -1,0 +1,49 @@
+{
+  "timer": {
+    "next": "Next exercise:",
+    "switch": "Switch sides!",
+    "switchNow": "Switch sides now!",
+    "complete": "Workout complete!"
+  },
+  "ui": {
+    "editorTitle": "Workout Editor",
+    "editorSubtitle": "Design your routine",
+    "addExercise": "Add Exercise",
+    "newExercise": "New Exercise",
+    "editExercise": "Edit Exercise",
+    "saveChanges": "Save Changes",
+    "cancel": "Cancel",
+    "startWorkout": "Start Workout",
+    "sideSwitchLabel": "Side Switch Halfway?",
+    "deleteConfirm": "Delete Exercise?",
+    "deleteWarning": "Are you sure you want to delete: ",
+    "deleteButton": "Delete",
+    "workoutScreenTitle": "Workout in Progress",
+    "workoutScreenNextUp": "Next Up",
+    "placeholder": {
+      "name": "Exercise Name",
+      "duration": "Seconds"
+    },
+    "start": "Start",
+    "pause": "Pause",
+    "reset": "Reset",
+    "save": "Save Changes",
+    "add": "Add Exercise",
+    "startRoutine": "Start Workout",
+    "imprint": "Imprint",
+    "privacy": "Privacy",
+    "back": "Back",
+    "exercises": "Exercises",
+    "libraryTitle": "My Routines",
+    "librarySubtitle": "Choose or create a workout",
+    "addRoutine": "Add Routine",
+    "editRoutineName": "Edit Routine Name",
+    "routineNameLabel": "Routine Name",
+    "deleteRoutineConfirm": "Are you sure you want to delete the routine '{name}'?",
+    "linkCopied": "Link copied to clipboard!",
+    "unnamedRoutine": "Unnamed Routine",
+    "importedSuffix": " (Imported)",
+    "importSuccess": "Success! '{name}' was imported.",
+    "importError": "Invalid or broken link."
+  }
+}

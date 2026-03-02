@@ -1,0 +1,14 @@
+[
+  {
+    "name": "Push up",
+    "apiId": "0001"
+  },
+  {
+    "name": "Squat",
+    "apiId": "0002"
+  },
+  {
+    "name": "Plank",
+    "apiId": "0003"
+  }
+]

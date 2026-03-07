@@ -7,6 +7,7 @@ import {IMPRESSUM_CONTENT, PRIVACY_CONTENT} from "./constants/legalContent";
 import {useRoutines} from "./hooks/useRoutines";
 import {useMagicLink} from "./hooks/useMagicLink";
 import {translations} from "./locales";
+import {useTheme} from "./hooks/useTheme.js";
 
 function App() {
     const [isTraining, setIsTraining] = useState(false);
@@ -18,6 +19,8 @@ function App() {
     }, [lang]);
 
     const toggleLanguage = () => setLang((prev) => (prev === "en" ? "de" : "en"));
+
+    const {theme, toggleTheme} = useTheme();
 
     const {
         routines,
@@ -61,6 +64,8 @@ function App() {
                             lang={lang}
                             toggleLanguage={toggleLanguage}
                             onOpenLegal={setActiveLegalPage}
+                            theme={theme}
+                            toggleTheme={toggleTheme}
                         />
                     ) : isTraining ? (
                         <RoutineScreen
@@ -82,6 +87,8 @@ function App() {
                             lang={lang}
                             toggleLanguage={toggleLanguage}
                             onOpenLegal={setActiveLegalPage}
+                            theme={theme}
+                            toggleTheme={toggleTheme}
                         />
                     )}
                 </div>

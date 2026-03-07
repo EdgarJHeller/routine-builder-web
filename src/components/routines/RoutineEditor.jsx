@@ -8,6 +8,7 @@ import ExerciseItem from "../exercises/ExerciseItem.jsx";
 import ExerciseModal from "../exercises/ExerciseModal.jsx";
 import {Footer} from "../common/Footer.jsx";
 import {LanguageToggle} from "../common/LanguageToggle.jsx";
+import {ThemeToggle} from "../common/ThemeToggle.jsx";
 
 const RoutineEditor = ({
                            exercises = [],
@@ -22,6 +23,8 @@ const RoutineEditor = ({
                            updateExercise,
                            onStart,
                            onOpenLegal,
+                           theme,
+                           toggleTheme,
                        }) => {
     const t = translations[lang];
     const [isModalOpen, setIsModalOpen] = useState(false);
@@ -92,7 +95,10 @@ const RoutineEditor = ({
                         {lang === "en" ? "Back" : "Zurück"}
                     </button>
 
-                    <LanguageToggle lang={lang} onToggle={toggleLanguage}/>
+                    <div className="flex items-center gap-2">
+                        <ThemeToggle theme={theme} onToggle={toggleTheme}/>
+                        <LanguageToggle lang={lang} onToggle={toggleLanguage}/>
+                    </div>
                 </div>
 
                 <div>

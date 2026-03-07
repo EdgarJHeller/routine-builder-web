@@ -6,6 +6,7 @@ import DeleteConfirmModal from "../common/DeleteConfirmModal.jsx";
 import RoutineItem from "./RoutineItem.jsx";
 import {Footer} from "../common/Footer.jsx";
 import {LanguageToggle} from "../common/LanguageToggle.jsx";
+import {ThemeToggle} from "../common/ThemeToggle.jsx";
 
 const RoutineLibrary = ({
                             routines,
@@ -15,6 +16,8 @@ const RoutineLibrary = ({
                             lang,
                             toggleLanguage,
                             onOpenLegal,
+                            theme,
+                            toggleTheme,
                         }) => {
     const t = translations[lang];
     const [routineToDelete, setRoutineToDelete] = useState(null);
@@ -30,7 +33,10 @@ const RoutineLibrary = ({
                     {t.ui.librarySubtitle || (lang === "en" ? "Choose or create a routine" : "Wähle oder erstelle eine Routine")}
                 </p>
             </div>
-            <LanguageToggle lang={lang} onToggle={toggleLanguage}/>
+            <div className="flex items-center gap-2">
+                <ThemeToggle theme={theme} onToggle={toggleTheme}/>
+                <LanguageToggle lang={lang} onToggle={toggleLanguage}/>
+            </div>
         </div>
     );
 

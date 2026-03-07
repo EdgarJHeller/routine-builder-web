@@ -57,6 +57,31 @@
     --color-content-workout: #94a3b8;
 }
 
+/* Manual theme override — takes priority over system setting */
+[data-theme="dark"] {
+    --color-surface-app: #0f172a;
+    --color-surface-card: #1e293b;
+    --color-surface-subtle: #334155;
+    --color-stroke-default: #334155;
+    --color-stroke-subtle: #1e293b;
+    --color-stroke-add: #475569;
+    --color-content-primary: #f8fafc;
+    --color-content-secondary: #94a3b8;
+    --color-content-muted: #475569;
+}
+
+[data-theme="light"] {
+    --color-surface-app: #f8fafc;
+    --color-surface-card: #ffffff;
+    --color-surface-subtle: #f1f5f9;
+    --color-stroke-default: #e2e8f0;
+    --color-stroke-subtle: #f1f5f9;
+    --color-stroke-add: #cbd5e1;
+    --color-content-primary: #0f172a;
+    --color-content-secondary: #475569;
+    --color-content-muted: #94a3b8;
+}
+
 /* ─── Component Classes ─────────────────────────────────────────────────────
    Reusable UI patterns built from the tokens above.
    Use these in JSX instead of repeating long class strings.
@@ -148,17 +173,17 @@
    ────────────────────────────────────────────────────────────────────────── */
 @media (prefers-color-scheme: dark) {
     :root {
-        --color-surface-app:           #0f172a;
-        --color-surface-card:          #1e293b;
-        --color-surface-subtle:        #334155;
+        --color-surface-app: #0f172a;
+        --color-surface-card: #1e293b;
+        --color-surface-subtle: #334155;
 
-        --color-stroke-default:        #334155;
-        --color-stroke-subtle:         #1e293b;
-        --color-stroke-add:            #475569;
+        --color-stroke-default: #334155;
+        --color-stroke-subtle: #1e293b;
+        --color-stroke-add: #475569;
 
-        --color-content-primary:       #f8fafc;
-        --color-content-secondary:     #94a3b8;
-        --color-content-muted:         #475569;
+        --color-content-primary: #f8fafc;
+        --color-content-secondary: #94a3b8;
+        --color-content-muted: #475569;
     }
 }
 

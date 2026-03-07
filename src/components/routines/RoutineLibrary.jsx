@@ -5,6 +5,7 @@ import {translations} from "../../locales/index.js";
 import DeleteConfirmModal from "../common/DeleteConfirmModal.jsx";
 import RoutineItem from "./RoutineItem.jsx";
 import {Footer} from "../common/Footer.jsx";
+import {LanguageToggle} from "../common/LanguageToggle.jsx";
 
 const RoutineLibrary = ({
                             routines,
@@ -29,18 +30,7 @@ const RoutineLibrary = ({
                     {t.ui.librarySubtitle || (lang === "en" ? "Choose or create a routine" : "Wähle oder erstelle eine Routine")}
                 </p>
             </div>
-            <button
-                onClick={toggleLanguage}
-                className="bg-surface-subtle p-1 rounded-icon flex items-center border border-stroke-default shadow-card focus:ring-2 focus:ring-brand">
-                <div
-                    className={`px-2 py-1 rounded-lg text-[10px] font-bold ${lang === "en" ? "bg-surface-card text-brand shadow-card" : "text-content-muted"}`}>
-                    EN
-                </div>
-                <div
-                    className={`px-2 py-1 rounded-lg text-[10px] font-bold ${lang === "de" ? "bg-surface-card text-brand shadow-card" : "text-content-muted"}`}>
-                    DE
-                </div>
-            </button>
+            <LanguageToggle lang={lang} onToggle={toggleLanguage}/>
         </div>
     );
 

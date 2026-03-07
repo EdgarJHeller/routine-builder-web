@@ -3,70 +3,58 @@
 @theme {
     --font-sans: "Inter", ui-sans-serif, system-ui;
 
-    /* ─── Surfaces ─────────────────────────────────────────────────
-       Verwendung: bg-surface-app, bg-surface-card, ...            */
+    /* ─── Brand ─────────────────────────────────────────────────── */
+    --color-brand: #3b82f6;
+    --color-brand-hover: color-mix(in srgb, var(--color-brand) 85%, black);
+    --color-brand-subtle: color-mix(in srgb, var(--color-brand) 15%, white);
+    --color-brand-text: color-mix(in srgb, var(--color-brand) 70%, black);
+
+    /* ─── Success ───────────────────────────────────────────────── */
+    --color-success: #10b981;
+    --color-success-hover: color-mix(in srgb, var(--color-success) 85%, black);
+    --color-success-subtle: color-mix(in srgb, var(--color-success) 15%, white);
+    --color-success-text: color-mix(in srgb, var(--color-success) 70%, black);
+
+    /* ─── Warning ───────────────────────────────────────────────── */
+    --color-warning: #f59e0b;
+    --color-warning-subtle: color-mix(in srgb, var(--color-warning) 15%, white);
+    --color-warning-text: color-mix(in srgb, var(--color-warning) 70%, black);
+
+    /* ─── Danger ────────────────────────────────────────────────── */
+    --color-danger: #ef4444;
+    --color-danger-subtle: color-mix(in srgb, var(--color-danger) 15%, white);
+    --color-danger-text: color-mix(in srgb, var(--color-danger) 70%, black);
+
+    /* ─── Workout Ring ──────────────────────────────────────────── */
+    --color-ring-track: #1e293b;
+    --color-ring-progress: var(--color-brand);
+
+    /* ─── Border Radius ─────────────────────────────────────────── */
+    --radius-card: 1rem;
+    --radius-icon: 0.75rem;
+    --radius-badge: 0.375rem;
+    --radius-pill: 9999px;
+
+    /* ─── Shadows ───────────────────────────────────────────────── */
+    --shadow-card: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);
+    --shadow-card-lg: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+
+    /* ─── Light theme (default) ─────────────────────────────────── */
     --color-surface-app: #f8fafc;
     --color-surface-card: #ffffff;
     --color-surface-subtle: #f1f5f9;
     --color-surface-workout: #0f172a;
     --color-surface-workout-muted: rgba(30, 41, 59, 0.5);
 
-    /* ─── Borders ──────────────────────────────────────────────────
-       Verwendung: border-stroke-default, border-stroke-subtle, ... */
     --color-stroke-default: #e2e8f0;
     --color-stroke-subtle: #f1f5f9;
     --color-stroke-add: #cbd5e1;
     --color-stroke-workout: #334155;
 
-    /* ─── Text ─────────────────────────────────────────────────────
-       Verwendung: text-content-primary, text-content-muted, ...   */
     --color-content-primary: #0f172a;
     --color-content-secondary: #475569;
     --color-content-muted: #94a3b8;
     --color-content-workout: #94a3b8;
-
-    /* ─── Brand / Accent ───────────────────────────────────────────
-       Verwendung: bg-brand, text-brand, border-brand, ...         */
-    --color-brand: #3b82f6;
-    --color-brand-hover: #2563eb;
-    --color-brand-subtle: #dbeafe;
-    --color-brand-text: #1d4ed8;
-
-    /* ─── Success ──────────────────────────────────────────────────
-       Verwendung: bg-success, hover:bg-success-hover, ...         */
-    --color-success: #10b981;
-    --color-success-hover: #059669;
-    --color-success-subtle: #d1fae5;
-    --color-success-text: #059669;
-
-    /* ─── Warning ──────────────────────────────────────────────────
-       Verwendung: bg-warning, bg-warning-subtle, text-warning-text */
-    --color-warning: #f59e0b;
-    --color-warning-subtle: #fef3c7;
-    --color-warning-text: #b45309;
-
-    /* ─── Danger ───────────────────────────────────────────────────
-       Verwendung: hover:bg-danger-subtle, hover:text-danger-text  */
-    --color-danger: #ef4444;
-    --color-danger-subtle: #fee2e2;
-    --color-danger-text: #dc2626;
-
-    /* ─── Workout Ring ─────────────────────────────────────────────
-       Verwendung: text-ring-track, text-ring-progress             */
-    --color-ring-track: #1e293b;
-    --color-ring-progress: #3b82f6;
-
-    /* ─── Border Radius ────────────────────────────────────────────
-       Verwendung: rounded-card, rounded-icon, rounded-badge, ...  */
-    --radius-card: 1rem;
-    --radius-icon: 0.75rem;
-    --radius-badge: 0.375rem;
-    --radius-pill: 9999px;
-
-    /* ─── Shadows ──────────────────────────────────────────────────
-       Verwendung: shadow-card, shadow-card-lg                     */
-    --shadow-card: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);
-    --shadow-card-lg: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
 }
 
 /* ─── Component Classes ─────────────────────────────────────────────────────
@@ -153,7 +141,32 @@
     }
 }
 
+/* ─── Dark Mode (system) ────────────────────────────────────────────────────
+   Overrides surface, stroke and content tokens for dark mode.
+   Brand/success/warning/danger derived colors adjust automatically
+   via color-mix() since they mix with white/black, not surface colors.
+   ────────────────────────────────────────────────────────────────────────── */
+@media (prefers-color-scheme: dark) {
+    :root {
+        --color-surface-app:           #0f172a;
+        --color-surface-card:          #1e293b;
+        --color-surface-subtle:        #334155;
+
+        --color-stroke-default:        #334155;
+        --color-stroke-subtle:         #1e293b;
+        --color-stroke-add:            #475569;
+
+        --color-content-primary:       #f8fafc;
+        --color-content-secondary:     #94a3b8;
+        --color-content-muted:         #475569;
+    }
+}
+
 /* Ganzseitiger App-Hintergrund */
 :root {
+    background-color: var(--color-surface-app);
+}
+
+body {
     background-color: var(--color-surface-app);
 }

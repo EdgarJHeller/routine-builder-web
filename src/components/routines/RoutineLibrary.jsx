@@ -20,25 +20,24 @@ const RoutineLibrary = ({
     const deleteModalRef = useFocusTrap(!!routineToDelete);
 
     const renderHeader = () => (
-        <div className="bg-white border-b border-slate-200 px-6 py-8 mb-6 flex justify-between items-start">
+        <div className="bg-surface-card border-b border-stroke-default px-6 py-8 mb-6 flex justify-between items-start">
             <div>
-                <h2 className="text-3xl font-extrabold text-slate-900">
+                <h2 className="text-3xl font-extrabold text-content-primary">
                     {t.ui.libraryTitle || (lang === "en" ? "My Routines" : "Meine Routinen")}
                 </h2>
-                <p className="text-slate-500 mt-1">
+                <p className="text-content-secondary mt-1">
                     {t.ui.librarySubtitle || (lang === "en" ? "Choose or create a routine" : "Wähle oder erstelle eine Routine")}
                 </p>
             </div>
             <button
                 onClick={toggleLanguage}
-                className="bg-slate-100 p-1 rounded-xl flex items-center border border-slate-200 shadow-sm focus:ring-2 focus:ring-blue-500"
-            >
+                className="bg-surface-subtle p-1 rounded-icon flex items-center border border-stroke-default shadow-card focus:ring-2 focus:ring-brand">
                 <div
-                    className={`px-2 py-1 rounded-lg text-[10px] font-bold ${lang === "en" ? "bg-white text-blue-600 shadow-sm" : "text-slate-400"}`}>
+                    className={`px-2 py-1 rounded-lg text-[10px] font-bold ${lang === "en" ? "bg-surface-card text-brand shadow-card" : "text-content-muted"}`}>
                     EN
                 </div>
                 <div
-                    className={`px-2 py-1 rounded-lg text-[10px] font-bold ${lang === "de" ? "bg-white text-blue-600 shadow-sm" : "text-slate-400"}`}>
+                    className={`px-2 py-1 rounded-lg text-[10px] font-bold ${lang === "de" ? "bg-surface-card text-brand shadow-card" : "text-content-muted"}`}>
                     DE
                 </div>
             </button>

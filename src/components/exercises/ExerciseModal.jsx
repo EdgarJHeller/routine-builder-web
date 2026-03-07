@@ -13,12 +13,9 @@ export default function ExerciseModal({
                                       }) {
     return (
         <div
-            className="fixed inset-0 bg-slate-900/60 backdrop-blur-sm z-50 flex items-end sm:items-center justify-center p-4">
-            <div
-                ref={modalRef}
-                className="bg-white w-full max-w-sm rounded-t-3xl sm:rounded-3xl p-8 shadow-2xl"
-            >
-                <h3 className="text-2xl font-black text-slate-900 mb-6">
+            className="fixed inset-0 bg-surface-workout/60 backdrop-blur-sm z-50 flex items-end sm:items-center justify-center p-4">
+            <div ref={modalRef} className="bg-surface-card w-full max-w-sm rounded-t-3xl sm:rounded-3xl p-8 shadow-2xl">
+                <h3 className="text-2xl font-black text-content-primary mb-6">
                     {editingId ? t.ui.editExercise : t.ui.newExercise}
                 </h3>
                 <div className="space-y-4">
@@ -37,14 +34,14 @@ export default function ExerciseModal({
                         aria-label={t.ui.placeholder.duration}
                         className="modal-input"
                     />
-                    <label className="flex items-center gap-3 p-4 bg-slate-50 rounded-xl cursor-pointer">
+                    <label className="flex items-center gap-3 p-4 bg-surface-subtle rounded-icon cursor-pointer">
                         <input
                             type="checkbox"
                             checked={isSideSwitch}
                             onChange={(e) => setIsSideSwitch(e.target.checked)}
-                            className="w-5 h-5 accent-blue-600"
+                            className="w-5 h-5 accent-brand"
                         />
-                        <span className="font-semibold text-slate-700">
+                        <span className="font-semibold text-content-secondary">
               {t.ui.sideSwitchLabel}
             </span>
                     </label>

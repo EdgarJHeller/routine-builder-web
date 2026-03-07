@@ -38,8 +38,8 @@ function App() {
     useMagicLink(setRoutines, lang);
 
     return (
-        <div className="min-h-screen bg-slate-50 flex justify-center items-start">
-            <div className="w-full max-w-md min-h-screen bg-white shadow-xl overflow-hidden relative">
+        <div className="min-h-screen bg-surface-app flex justify-center items-start">
+            <div className="w-full max-w-md min-h-screen bg-surface-card shadow-xl overflow-hidden relative">
 
                 {activeLegalPage && (
                     <LegalModal

@@ -34,10 +34,10 @@ export default function ExerciseItem({
 
             <div className="flex-1">
                 <h3 className="font-bold text-content-primary text-lg">{exercise.name}</h3>
-                <div className="flex gap-2 mt-1">
-                <span className="badge bg-brand-subtle text-brand-text">
-                    {exercise.durationSeconds}s
-                </span>
+                <div className="flex items-center gap-2 mt-1">
+                    <span className="badge bg-brand-subtle text-brand-text">
+                        {exercise.durationSeconds}s
+                    </span>
                     {exercise.isSideSwitchRequired && (
                         <span className="badge bg-warning-subtle text-warning-text">
                             {t.ui.switch || "Switch Side"}
@@ -46,7 +46,7 @@ export default function ExerciseItem({
                 </div>
             </div>
 
-            <div className="flex items-center">
+            <div className="flex items-center gap-1">
                 <button onClick={() => onEdit(exercise)}
                         className="btn-icon hover:bg-brand-subtle hover:text-brand-text focus:ring-brand">
                     <Edit2 size={20}/>

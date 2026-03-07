@@ -28,15 +28,15 @@ const RoutineItem = ({routine, t, onSelect, onDelete}) => {
                     className="w-12 h-12 bg-surface-subtle rounded-icon flex items-center justify-center text-content-muted shrink-0">
                     <List size={24}/>
                 </div>
-                <div>
-                    <span className="font-bold text-content-primary block text-lg">
+                <div className="flex flex-col">
+                    <span className="font-bold text-content-primary text-lg">
                         {routine.name || t.ui.unnamedRoutine}
                     </span>
-                    <span className="text-xs text-content-secondary font-bold tracking-wider mt-1 block">
+                                    <span className="text-xs text-content-secondary font-bold tracking-wider mt-1">
                         {routine.exercises?.length || 0}{" "}
-                        {routine.exercises?.length === 1 ? t.ui.exercise || "Exercise" : t.ui.exercises || "Exercises"}
-                        {" · "}
-                        {formatDuration(routine.exercises)}
+                                        {routine.exercises?.length === 1 ? t.ui.exercise || "Exercise" : t.ui.exercises || "Exercises"}
+                                        {" · "}
+                                        {formatDuration(routine.exercises)}
                     </span>
                 </div>
             </button>

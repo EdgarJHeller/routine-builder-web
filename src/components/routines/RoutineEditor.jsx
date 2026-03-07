@@ -7,6 +7,7 @@ import DeleteConfirmModal from "../common/DeleteConfirmModal.jsx";
 import ExerciseItem from "../exercises/ExerciseItem.jsx";
 import ExerciseModal from "../exercises/ExerciseModal.jsx";
 import {Footer} from "../common/Footer.jsx";
+import {LanguageToggle} from "../common/LanguageToggle.jsx";
 
 const RoutineEditor = ({
                            exercises = [],
@@ -91,21 +92,7 @@ const RoutineEditor = ({
                         {lang === "en" ? "Back" : "Zurück"}
                     </button>
 
-                    <button
-                        onClick={toggleLanguage}
-                        className="bg-surface-subtle p-1 rounded-icon flex items-center
-                           border border-stroke-default shadow-card
-                           focus:ring-2 focus:ring-brand"
-                    >
-                        <div className={`px-2 py-1 rounded-lg text-[10px] font-bold
-                    ${lang === "en" ? "bg-surface-card text-brand shadow-card" : "text-content-muted"}`}>
-                            EN
-                        </div>
-                        <div className={`px-2 py-1 rounded-lg text-[10px] font-bold
-                    ${lang === "de" ? "bg-surface-card text-brand shadow-card" : "text-content-muted"}`}>
-                            DE
-                        </div>
-                    </button>
+                    <LanguageToggle lang={lang} onToggle={toggleLanguage}/>
                 </div>
 
                 <div>

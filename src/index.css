@@ -1,7 +1,7 @@
 @import "tailwindcss";
 
 @theme {
-    --font-sans: "Inter", ui-sans-serif, system-ui;
+    --font-sans: "DM Sans", ui-sans-serif, system-ui;
 
     /* ─── Brand ─────────────────────────────────────────────────── */
     --color-brand: #3b82f6;
@@ -9,7 +9,13 @@
     --color-brand-subtle: color-mix(in srgb, var(--color-brand) 15%, white);
     --color-brand-text: color-mix(in srgb, var(--color-brand) 70%, black);
 
-    /* ─── Success ───────────────────────────────────────────────── */
+    /* ─── Secondary ───────────────────────────────────────────────── */
+    --color-secondary: #0d9488;
+    --color-secondary-hover: color-mix(in srgb, var(--color-secondary) 85%, black);
+    --color-secondary-subtle: color-mix(in srgb, var(--color-secondary) 15%, white);
+    --color-secondary-text: color-mix(in srgb, var(--color-secondary) 70%, black);
+
+    /* ─── Success (vivid moss) ───────────────────────────────────── */
     --color-success: #10b981;
     --color-success-hover: color-mix(in srgb, var(--color-success) 85%, black);
     --color-success-subtle: color-mix(in srgb, var(--color-success) 15%, white);
@@ -130,6 +136,11 @@
     .btn-icon-brand {
         @apply p-3 text-content-muted rounded-icon transition-colors focus:ring-2
         hover:bg-brand-subtle hover:text-brand-text focus:ring-brand;
+    }
+
+    .btn-icon-secondary {
+        @apply p-3 text-content-muted rounded-icon transition-colors focus:ring-2
+        hover:bg-secondary-subtle hover:text-secondary-text focus:ring-secondary;
     }
 
     .btn-icon-success {

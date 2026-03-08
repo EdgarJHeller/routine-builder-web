@@ -48,11 +48,11 @@ export default function ExerciseItem({
 
             <div className="flex items-center gap-1">
                 <button onClick={() => onEdit(exercise)}
-                        className="btn-icon hover:bg-brand-subtle hover:text-brand-text focus:ring-brand">
+                        className="btn-icon-secondary">
                     <Edit2 size={20}/>
                 </button>
                 <button onClick={() => onDelete(exercise)}
-                        className="btn-icon hover:bg-danger-subtle hover:text-danger-text focus:ring-danger">
+                        className="btn-icon-danger">
                     <Trash2 size={20}/>
                 </button>
             </div>

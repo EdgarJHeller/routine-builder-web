@@ -8,12 +8,11 @@ const RoutineScreen = ({exercises, lang, onExit}) => {
     const t = translations[lang];
 
     const iconBtnBase =
-        "p-2 text-slate-400 hover:text-white transition-colors focus:outline-none focus:ring-2 focus:ring-blue-500 rounded-lg";
+        "p-2 text-content-workout hover:text-white transition-colors focus:outline-none focus:ring-2 focus:ring-brand rounded-lg";
     const controlBtnBase =
-        "flex justify-center p-4 text-slate-400 hover:text-white transition-colors focus:outline-none focus:ring-2 focus:ring-blue-500 rounded-full";
+        "flex justify-center p-4 text-content-workout hover:text-white transition-colors focus:outline-none focus:ring-2 focus:ring-brand rounded-full";
     const mainPlayBtn =
-        "flex justify-center items-center w-20 h-20 bg-white text-slate-900 rounded-full shadow-xl active:scale-90 transition-transform mx-auto focus:outline-none focus:ring-4 focus:ring-blue-500";
-
+        "flex justify-center items-center w-20 h-20 bg-surface-card text-content-primary rounded-full shadow-xl active:scale-90 transition-transform mx-auto focus:outline-none focus:ring-4 focus:ring-brand";
     const {
         currentExercise,
         nextExercise,
@@ -53,12 +52,12 @@ const RoutineScreen = ({exercises, lang, onExit}) => {
     if (isWorkoutComplete) {
         return (
             <div
-                className="min-h-screen bg-slate-900 flex flex-col items-center justify-center p-6 text-center"
+                className="min-h-screen bg-surface-workout flex flex-col items-center justify-center p-6 text-center"
                 role="alert"
             >
                 <div
-                    className="w-24 h-24 bg-emerald-500/20 rounded-full flex items-center justify-center mb-6 animate-bounce">
-                    <Zap size={48} className="text-emerald-400" fill="currentColor"/>
+                    className="w-24 h-24 bg-success/20 rounded-full flex items-center justify-center mb-6 animate-bounce">
+                    <Zap size={48} className="text-success" fill="currentColor"/>
                 </div>
                 <h2 className="text-4xl font-black text-white mb-2">
                     {t.timer.complete}
@@ -66,7 +65,7 @@ const RoutineScreen = ({exercises, lang, onExit}) => {
                 <button
                     autoFocus
                     onClick={onExit}
-                    className="w-full py-4 bg-white text-slate-900 font-bold rounded-2xl shadow-lg active:scale-95 focus:ring-4 focus:ring-emerald-500 outline-none"
+                    className="w-full py-4 bg-surface-card text-content-primary font-bold rounded-card shadow-card-lg active:scale-95 focus:ring-4 focus:ring-success outline-none"
                 >
                     {t.ui.backToEditor || "Back to Editor"}
                 </button>

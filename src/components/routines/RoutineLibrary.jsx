@@ -18,6 +18,7 @@ const RoutineLibrary = ({
                             onOpenLegal,
                             theme,
                             toggleTheme,
+                            showToast,
                         }) => {
     const t = translations[lang];
     const [routineToDelete, setRoutineToDelete] = useState(null);
@@ -59,6 +60,7 @@ const RoutineLibrary = ({
                         t={t}
                         onSelect={() => onSelectRoutine(routine.id)}
                         onDelete={setRoutineToDelete}
+                        showToast={showToast}
                     />
                 ))}
 

@@ -2,7 +2,7 @@ import {List, Share2, Trash2} from "lucide-react";
 import React from "react";
 import {formatDuration} from "../../utils/formatDuration.js";
 
-const RoutineItem = ({routine, t, onSelect, onDelete}) => {
+const RoutineItem = ({routine, t, onSelect, onDelete, showToast }) => {
 
     const handleShare = (e) => {
         e.stopPropagation();
@@ -11,7 +11,7 @@ const RoutineItem = ({routine, t, onSelect, onDelete}) => {
             const shareUrl = `${window.location.origin}${window.location.pathname}?routine=${encoded}`;
 
             navigator.clipboard.writeText(shareUrl).then(() => {
-                alert(t.ui.linkCopied); // SCHÖN SAUBER!
+                showToast(t.ui.linkCopied);
             });
         } catch (error) {
             console.error("Fehler beim Erstellen des Links", error);

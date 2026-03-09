@@ -1,4 +1,4 @@
-import {ArrowLeft, Play, Plus} from "lucide-react"; // ArrowLeft hinzugefügt!
+import {ArrowLeft, Play, Plus} from "lucide-react";
 import {useState} from "react";
 import {useFocusTrap} from "../../hooks/useFocusTrap.js";
 import {useKeydown} from "../../hooks/useKeydown.js";

@@ -5,9 +5,12 @@ import RoutineLibrary from "./components/routines/RoutineLibrary.jsx";
 import RoutineScreen from "./components/routines/RoutineScreen.jsx";
 import {IMPRESSUM_CONTENT, PRIVACY_CONTENT} from "./constants/legalContent";
 import {useRoutines} from "./hooks/useRoutines";
-import {useMagicLink} from "./hooks/useMagicLink";
 import {translations} from "./locales";
 import {useTheme} from "./hooks/useTheme.js";
+import {useMagicLink} from "./hooks/useMagicLink.js";
+import {useToast} from "./hooks/useToast.js";
+import {Toast} from "./components/common/Toast.jsx";
+import {ImportRoutineModal} from "./components/routines/ImportRoutineModal.jsx";
 
 function App() {
     const [isTraining, setIsTraining] = useState(false);
@@ -21,6 +24,9 @@ function App() {
     const toggleLanguage = () => setLang((prev) => (prev === "en" ? "de" : "en"));
 
     const {theme, toggleTheme} = useTheme();
+
+    const {pendingRoutine, setPendingRoutine} = useMagicLink(lang);
+    const {toast, showToast} = useToast();
 
     const {
         routines,
@@ -38,7 +44,17 @@ function App() {
         moveExercise
     } = useRoutines(lang);
 
-    useMagicLink(setRoutines, lang);
+    const handleImportConfirm = () => {
+        const t = translations[lang];
+        const importedRoutine = {
+            ...pendingRoutine,
+            id: crypto.randomUUID(),
+            name: pendingRoutine.name + t.ui.importedSuffix,
+        };
+        setRoutines(prev => [...prev, importedRoutine]);
+        setPendingRoutine(null);
+        showToast(t.ui.importSuccess.replace("{name}", pendingRoutine.name));
+    };
 
     return (
         <div className="min-h-screen bg-surface-app flex justify-center items-start">
@@ -66,6 +82,7 @@ function App() {
                             onOpenLegal={setActiveLegalPage}
                             theme={theme}
                             toggleTheme={toggleTheme}
+                            showToast={showToast}
                         />
                     ) : isTraining ? (
                         <RoutineScreen
@@ -92,6 +109,13 @@ function App() {
                         />
                     )}
                 </div>
+                <ImportRoutineModal
+                    routine={pendingRoutine}
+                    t={translations[lang]}
+                    onConfirm={handleImportConfirm}
+                    onDismiss={() => setPendingRoutine(null)}
+                />
+                <Toast message={toast}/>
             </div>
         </div>
     );

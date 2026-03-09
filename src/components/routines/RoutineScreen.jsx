@@ -1,5 +1,5 @@
 import {Pause, Play, RotateCcw, SkipBack, SkipForward, X, Zap,} from "lucide-react";
-import {useKeydown} from "../../hooks/useKeydown.js"; // Import our hook!
+import {useKeydown} from "../../hooks/useKeydown.js";
 import {useWakeLock} from "../../hooks/useWakeLock.js";
 import useWorkoutTimer from "../../hooks/useWorkoutTimer.js";
 import {translations} from "../../locales/index.js";

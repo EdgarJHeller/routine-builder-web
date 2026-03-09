@@ -88,35 +88,37 @@
     --color-content-muted: #94a3b8;
 }
 
-/* ─── Component Classes ─────────────────────────────────────────────────────
-   Reusable UI patterns built from the tokens above.
-   Use these in JSX instead of repeating long class strings.
-   ────────────────────────────────────────────────────────────────────────── */
-@layer components {
+@layer base {
+    @keyframes fade-in {
+        from {
+            opacity: 0;
+            transform: translateY(8px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+    .animate-fade-in {
+        animation: fade-in 0.2s ease-out forwards;
+    }
+}
 
-    /* Card — white surface with border and shadow
-       Usage: <li className="card"> */
+@layer components {
     .card {
         @apply bg-surface-card border border-stroke-default rounded-card shadow-card;
     }
 
-    /* Badge — small colored label, pair with a color variant class
-       Usage: <span className="badge bg-brand-subtle text-brand-text"> */
     .badge {
         @apply text-xs font-bold px-2 py-1 rounded-badge;
     }
 
-    /* btn-primary — solid full-width action button (e.g. Start Routine)
-       Pass the background color as an additional class per context.
-       Usage: <button className="btn-primary bg-success hover:bg-success-hover"> */
     .btn-primary {
         @apply w-full font-bold py-4 rounded-card shadow-card-lg text-white
         flex items-center justify-center gap-2
         transition-transform active:scale-95;
     }
 
-    /* btn-add — dashed outline button for adding items
-       Usage: <button className="btn-add"> */
     .btn-add {
         @apply w-full py-4 border-2 border-dashed border-stroke-add rounded-card
         text-content-secondary font-bold
@@ -125,14 +127,10 @@
         focus:ring-2 focus:ring-brand;
     }
 
-    /* btn-icon — small square icon button
-           Pass hover colors as additional classes per context.
-           Usage: <button className="btn-icon hover:bg-danger-subtle hover:text-danger-text focus:ring-danger"> */
     .btn-icon {
         @apply p-3 text-content-muted rounded-icon transition-colors focus:ring-2;
     }
 
-    /* btn-icon color variants */
     .btn-icon-brand {
         @apply p-3 text-content-muted rounded-icon transition-colors focus:ring-2
         hover:bg-brand-subtle hover:text-brand-text focus:ring-brand;
@@ -153,16 +151,11 @@
         hover:bg-danger-subtle hover:text-danger-text focus:ring-danger;
     }
 
-    /* modal-input — text input inside a modal
-       Usage: <input className="modal-input"> */
     .modal-input {
         @apply w-full p-4 bg-surface-subtle rounded-icon outline-none
         focus:ring-2 focus:ring-brand;
     }
 
-    /* btn-modal-primary — full-width confirm button inside a modal
-       Pass background color per context.
-       Usage: <button className="btn-modal-primary bg-brand hover:bg-brand-hover focus:ring-brand"> */
     .btn-modal-primary {
         @apply flex-2 py-4 text-white rounded-icon font-bold
         transition-colors outline-none focus:ring-2;

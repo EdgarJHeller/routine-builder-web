@@ -1,10 +1,12 @@
 import {useCallback, useEffect, useState} from 'react';
 import {translations} from '../locales';
+import {getVoice} from '../utils/speechUtils.js';
 
 /**
  * Custom hook to manage a workout timer.
  *
  * @param {Array} exercises - List of exercise objects.
+ * @param lang
  * @returns {Object} - The current state of the workout and control functions.
  */
 const useWorkoutTimer = (exercises, lang = 'en') => {
@@ -17,8 +19,6 @@ const useWorkoutTimer = (exercises, lang = 'en') => {
     const currentExercise = exercises[currentExerciseIndex];
     const nextExercise = exercises[currentExerciseIndex + 1] || null;
 
-
-    // Timer Logic
     useEffect(() => {
         if (isPaused || isWorkoutComplete || !currentExercise) return;
 
@@ -49,11 +49,21 @@ const useWorkoutTimer = (exercises, lang = 'en') => {
         return () => clearInterval(intervalId);
     }, [isPaused, isWorkoutComplete, currentExercise, currentExerciseIndex, exercises]);
 
+    const speak = useCallback((text, language) => {
+        if (!window.speechSynthesis || isPaused) return;
+        window.speechSynthesis.cancel();
+        const utterance = new SpeechSynthesisUtterance(text);
+        const langCode = language === 'de' ? 'de-DE' : 'en-US';
+        utterance.lang = langCode;
+        utterance.voice = getVoice(langCode.split('-')[0]);
+        window.speechSynthesis.speak(utterance);
+    }, [isPaused]);
+
     // Controls
     const start = useCallback(() => {
         speak("");
         setIsPaused(false);
-    }, []);
+    }, [speak]);
     const pause = useCallback(() => setIsPaused(true), []);
 
     const reset = useCallback(() => {
@@ -87,27 +97,6 @@ const useWorkoutTimer = (exercises, lang = 'en') => {
         }
     }, [currentExerciseIndex, exercises]);
 
-    const getVoice = (lang) => {
-        const voices = window.speechSynthesis.getVoices();
-        return voices.find(v => v.lang.startsWith(lang) && v.name.includes("Google"))
-            || voices.find(v => v.lang.startsWith(lang))
-            || null;
-    };
-
-    const speak = (text, language) => {
-        if (!window.speechSynthesis || isPaused) return;
-        window.speechSynthesis.cancel();
-
-        const utterance = new SpeechSynthesisUtterance(text);
-
-        const langCode = language === 'de' ? 'de-DE' : 'en-US';
-        utterance.lang = langCode;
-
-        utterance.voice = getVoice(langCode.split('-')[0]);
-
-        window.speechSynthesis.speak(utterance);
-    };
-
     useEffect(() => {
         if (isPaused || isWorkoutComplete || !currentExercise) return;
 
@@ -122,8 +111,7 @@ const useWorkoutTimer = (exercises, lang = 'en') => {
         if (isSideSwitchAlert) {
             speak(t.timer.switchNow, lang);
         }
-    }, [timeLeft, isPaused, isWorkoutComplete, isSideSwitchAlert, lang]);
-    ;
+    }, [timeLeft, isPaused, isWorkoutComplete, isSideSwitchAlert, lang, currentExercise, speak, t.timer.next, t.timer.switchNow]);
 
     return {
         currentExerciseIndex,

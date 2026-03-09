@@ -1,36 +1,20 @@
-import {useEffect} from "react";
-import {translations} from "../locales";
+import {useState} from "react";
 
-export const useMagicLink = (setRoutines, lang) => {
-    useEffect(() => {
+export const useMagicLink = () => {
+    const [pendingRoutine, setPendingRoutine] = useState(() => {
         const params = new URLSearchParams(window.location.search);
         const sharedRoutineData = params.get("routine");
 
         if (sharedRoutineData) {
-            const t = translations[lang];
-
             window.history.replaceState({}, document.title, window.location.pathname);
-
-            setTimeout(() => {
-                try {
-                    const decodedRoutine = JSON.parse(decodeURIComponent(atob(sharedRoutineData)));
-
-                    const importedRoutine = {
-                        ...decodedRoutine,
-                        id: crypto.randomUUID(),
-                        name: decodedRoutine.name + t.ui.importedSuffix
-                    };
-
-                    setRoutines(prev => [...prev, importedRoutine]);
-
-                    const successMsg = t.ui.importSuccess.replace('{name}', decodedRoutine.name);
-                    alert(successMsg);
-
-                } catch (error) {
-                    console.error("Fehler beim Importieren der Routine:", error);
-                    alert(t.ui.importError);
-                }
-            }, 0);
+            try {
+                return JSON.parse(decodeURIComponent(atob(sharedRoutineData)));
+            } catch (error) {
+                console.error("Fehler beim Importieren der Routine:", error);
+            }
         }
-    }, [lang, setRoutines]);
+        return null;
+    });
+
+    return {pendingRoutine, setPendingRoutine};
 };

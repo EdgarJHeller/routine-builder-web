@@ -1,7 +1,6 @@
 import {useEffect} from "react";
 
 export default function LegalModal({title, children, onClose, backText}) {
-    // Close on Escape key press
     useEffect(() => {
         const handleEsc = (e) => {
             if (e.key === "Escape") onClose();

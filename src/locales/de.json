@@ -45,6 +45,10 @@
     "unnamedRoutine": "Unbenannte Routine",
     "importedSuffix": " (Importiert)",
     "importSuccess": "Erfolg! '{name}' wurde importiert.",
-    "importError": "Ungültiger oder fehlerhafter Link."
+    "importError": "Ungültiger oder fehlerhafter Link.",
+    "importTitle": "Routine geteilt",
+    "importSubtitle": "Jemand hat diese Routine mit dir geteilt. Zur deiner Liste hinzufügen?",
+    "importConfirm": "Zu meinen Routinen hinzufügen",
+    "dismiss": "Ablehnen"
   }
 }

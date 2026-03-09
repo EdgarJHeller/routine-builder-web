@@ -45,6 +45,10 @@
     "unnamedRoutine": "Unnamed Routine",
     "importedSuffix": " (Imported)",
     "importSuccess": "Success! '{name}' was imported.",
-    "importError": "Invalid or broken link."
+    "importError": "Invalid or broken link.",
+    "importTitle": "Routine shared with you",
+    "importSubtitle": "Someone shared this routine with you. Add it to your list?",
+    "importConfirm": "Add to my routines",
+    "dismiss": "Dismiss"
   }
 }

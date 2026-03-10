@@ -1,7 +1,7 @@
 import {Pause, Play, RotateCcw, SkipBack, SkipForward, X, Zap,} from "lucide-react";
 import {useKeydown} from "../../hooks/useKeydown.js";
 import {useWakeLock} from "../../hooks/useWakeLock.js";
-import useWorkoutTimer from "../../hooks/useWorkoutTimer.js";
+import useWorkoutTimer, {PREP_DURATION} from "../../hooks/useWorkoutTimer.js";
 import {translations} from "../../locales/index.js";
 
 const RoutineScreen = ({exercises, lang, onExit}) => {
@@ -25,6 +25,8 @@ const RoutineScreen = ({exercises, lang, onExit}) => {
         reset,
         next,
         prev,
+        prepTimeLeft,
+        isPrepping,
     } = useWorkoutTimer(exercises, lang);
 
     useWakeLock(!isWorkoutComplete);
@@ -89,7 +91,9 @@ const RoutineScreen = ({exercises, lang, onExit}) => {
 
             <div className="flex-1 flex flex-col items-center justify-center">
                 <h1 className="text-2xl font-bold text-content-workout mb-2 uppercase tracking-tight">
-                    {currentExercise?.name}
+                    {isPrepping
+                        ? t.timer.getReady || "Get Ready"
+                        : currentExercise?.name}
                 </h1>
 
                 <div className="relative flex items-center justify-center w-64 h-64"
@@ -101,13 +105,15 @@ const RoutineScreen = ({exercises, lang, onExit}) => {
                         <circle cx="128" cy="128" r="120"
                                 stroke="currentColor" strokeWidth="8" fill="transparent"
                                 strokeDasharray={754}
-                                strokeDashoffset={754 - (754 * progress) / 100}
+                                strokeDashoffset={754 - (754 * (isPrepping
+                                    ? (prepTimeLeft / PREP_DURATION) * 100
+                                    : progress)) / 100}
                                 className="text-ring-progress transition-all duration-1000 ease-linear"
                                 strokeLinecap="round"/>
                     </svg>
                     <span className="text-7xl font-black tabular-nums tracking-tighter">
-                {formatTime(timeLeft)}
-            </span>
+                        {isPrepping ? prepTimeLeft : formatTime(timeLeft)}
+                    </span>
                 </div>
 
                 <div className="h-12 mt-6" aria-live="assertive">

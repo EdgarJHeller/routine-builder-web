@@ -1,9 +1,10 @@
 # ⚡ Routine Editor
 
-[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg?style=flat-square)](LICENSE)
-[![Live Demo](https://img.shields.io/badge/Live-Demo-green.svg?style=flat-square)](https://routine.hejh.me)
-[![codecov](https://codecov.io/gh/EdgarJHeller/routine-builder-web/branch/main/graph/badge.svg)](https://codecov.io/gh/EdgarJHeller/routine-builder-web)
+[![Live Demo](https://img.shields.io/badge/Live-Demo-green.svg)](https://routine.hejh.me)
 [![CI](https://github.com/EdgarJHeller/routine-builder-web/actions/workflows/ci.yml/badge.svg)](https://github.com/EdgarJHeller/routine-builder-web/actions/workflows/ci.yml)
+[![codecov](https://codecov.io/gh/EdgarJHeller/routine-builder-web/branch/main/graph/badge.svg)](https://codecov.io/gh/EdgarJHeller/routine-builder-web)
+[![Lighthouse](https://img.shields.io/badge/Lighthouse-100%20%7C%20100%20%7C%20100%20%7C%20100-brightgreen?logo=lighthouse)](https://routine.hejh.me)
+[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
 
 A minimalist workout routine builder and timer. Designed for focus, this app avoids the clutter of exercise videos and ads, providing a clean experience for athletes who know their form and just want to get the work done.
 

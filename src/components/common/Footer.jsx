@@ -1,6 +1,6 @@
 export function Footer({onOpenLegal, t}) {
     return (
-        <footer className="absolute bottom-8 w-full flex justify-center gap-6 text-content-muted text-xs">
+        <footer className="absolute bottom-8 w-full flex justify-center gap-6 text-content-secondary text-xs">
             <button onClick={() => onOpenLegal("impressum")}
                     className="hover:underline focus:ring-2 focus:ring-brand">
                 {t.ui.imprint}

@@ -2,7 +2,7 @@ import {List, Share2, Trash2} from "lucide-react";
 import React from "react";
 import {formatDuration} from "../../utils/formatDuration.js";
 
-const RoutineItem = ({routine, t, onSelect, onDelete, showToast }) => {
+const RoutineItem = ({routine, t, onSelect, onDelete, showToast}) => {
 
     const handleShare = (e) => {
         e.stopPropagation();
@@ -42,12 +42,12 @@ const RoutineItem = ({routine, t, onSelect, onDelete, showToast }) => {
             </button>
 
             <div className="flex items-center gap-1 shrink-0">
-                <button onClick={handleShare}
-                        className="btn-icon-secondary">
+                <button onClick={handleShare} className="btn-icon-secondary"
+                        aria-label={t.ui.shareRoutine || "Share routine"}>
                     <Share2 size={20}/>
                 </button>
-                <button onClick={() => onDelete(routine)}
-                        className="btn-icon-danger">
+                <button onClick={() => onDelete(routine)} className="btn-icon-danger"
+                        aria-label={t.ui.deleteRoutine || "Delete routine"}>
                     <Trash2 size={20}/>
                 </button>
             </div>

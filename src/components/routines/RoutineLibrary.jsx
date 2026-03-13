@@ -49,7 +49,7 @@ const RoutineLibrary = ({
     };
 
     return (
-        <div className="min-h-screen bg-surface-app pb-32 relative">
+        <main className="min-h-screen bg-surface-app pb-32 relative">
             {renderHeader()}
 
             <ul className="max-w-md mx-auto px-4 space-y-3">
@@ -64,9 +64,11 @@ const RoutineLibrary = ({
                     />
                 ))}
 
-                <button onClick={onCreateRoutine} className="btn-add mt-4">
-                    <Plus size={20}/> {t.ui.addRoutine || (lang === "en" ? "Add Routine" : "Routine hinzufügen")}
-                </button>
+                <li>
+                    <button onClick={onCreateRoutine} className="btn-add mt-4">
+                        <Plus size={20}/> {t.ui.addRoutine || (lang === "en" ? "Add Routine" : "Routine hinzufügen")}
+                    </button>
+                </li>
             </ul>
 
             <DeleteConfirmModal
@@ -78,7 +80,7 @@ const RoutineLibrary = ({
             />
 
             <Footer onOpenLegal={onOpenLegal} t={t}/>
-        </div>
+        </main>
     );
 };
 

@@ -82,7 +82,7 @@ const RoutineEditor = ({
     };
 
     return (
-        <div className="min-h-screen bg-surface-app pb-32">
+        <main className="min-h-screen bg-surface-app pb-32">
             <div className="bg-surface-card border-b border-stroke-default px-6 pt-6 pb-8 mb-6">
                 <div className="flex justify-between items-center mb-6">
                     <button
@@ -129,18 +129,21 @@ const RoutineEditor = ({
                     />
                 ))}
 
-                <button onClick={() => {
-                    closeModal();
-                    setIsModalOpen(true);
-                }}
-                        className="btn-add">
-                    <Plus size={20}/> {t.ui.addExercise}
-                </button>
+                <li>
+                    <button onClick={() => {
+                        closeModal();
+                        setIsModalOpen(true);
+                    }} className="btn-add">
+                        <Plus size={20}/> {t.ui.addExercise}
+                    </button>
+                </li>
 
                 {exercises.length > 0 && (
-                    <button onClick={onStart} className="btn-primary mt-8 bg-success hover:bg-success-hover">
-                        <Play size={20} fill="currentColor"/> {lang === "en" ? "Start Routine" : "Routine Starten"}
-                    </button>
+                    <li>
+                        <button onClick={onStart} className="btn-primary mt-8 bg-success hover:bg-success-hover">
+                            <Play size={20} fill="currentColor"/> {lang === "en" ? "Start Routine" : "Routine Starten"}
+                        </button>
+                    </li>
                 )}
             </ul>
 
@@ -166,7 +169,7 @@ const RoutineEditor = ({
             />
 
             <Footer onOpenLegal={onOpenLegal} t={t}/>
-        </div>
+        </main>
     );
 };
 

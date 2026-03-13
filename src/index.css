@@ -4,7 +4,7 @@
     --font-sans: "DM Sans", ui-sans-serif, system-ui;
 
     /* ─── Brand ─────────────────────────────────────────────────── */
-    --color-brand: #3b82f6;
+    --color-brand: #2563eb;
     --color-brand-hover: color-mix(in srgb, var(--color-brand) 85%, black);
     --color-brand-subtle: color-mix(in srgb, var(--color-brand) 15%, white);
     --color-brand-text: color-mix(in srgb, var(--color-brand) 70%, black);

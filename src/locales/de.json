@@ -50,6 +50,8 @@
     "importSubtitle": "Jemand hat diese Routine mit dir geteilt. Zur deiner Liste hinzufügen?",
     "importConfirm": "Zu meinen Routinen hinzufügen",
     "dismiss": "Ablehnen",
-    "getReady": "Mach dich bereit!"
+    "getReady": "Mach dich bereit!",
+    "shareRoutine": "Routine teilen",
+    "deleteRoutine": "Routine löschen"
   }
 }

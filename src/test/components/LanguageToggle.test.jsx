@@ -13,13 +13,13 @@ describe('LanguageToggle', () => {
     it('highlights EN when lang is en', () => {
         render(<LanguageToggle lang="en" onToggle={vi.fn()} />);
         expect(screen.getByText('EN')).toHaveClass('text-brand');
-        expect(screen.getByText('DE')).toHaveClass('text-content-muted');
+        expect(screen.getByText('DE')).toHaveClass('text-content-secondary');
     });
 
     it('highlights DE when lang is de', () => {
         render(<LanguageToggle lang="de" onToggle={vi.fn()} />);
         expect(screen.getByText('DE')).toHaveClass('text-brand');
-        expect(screen.getByText('EN')).toHaveClass('text-content-muted');
+        expect(screen.getByText('EN')).toHaveClass('text-content-secondary');
     });
 
     it('calls onToggle when clicked', async () => {

@@ -2,14 +2,18 @@ export default {
     ci: {
         collect: {
             staticDistDir: './dist',
-            numberOfRuns: 1,
+            numberOfRuns: 3,
         },
         assert: {
             assertions: {
-                'categories:performance':    ['warn', { minScore: 0.9 }],
-                'categories:best-practices': ['warn', { minScore: 0.9 }],
-                'categories:accessibility':  ['warn', { minScore: 0.85 }],
-                'categories:pwa':            ['warn', { minScore: 0.8 }],
+                'categories:performance':       ['warn', { minScore: 0.9 }],
+                'categories:best-practices':    ['warn', { minScore: 0.9 }],
+                'categories:accessibility':     ['warn', { minScore: 0.9 }],
+                'categories:pwa':               ['warn', { minScore: 0.8 }],
+                'unused-javascript':            'off',
+                'network-dependency-tree-insight': 'off',
+                'render-blocking-resources':    'warn',
+                'render-blocking-insight':      'warn',
             }
         },
         upload: {

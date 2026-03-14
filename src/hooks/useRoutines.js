@@ -1,6 +1,9 @@
 import {useEffect, useState} from "react";
+import {useTranslation} from 'react-i18next';
 
-export const useRoutines = (lang) => {
+export const useRoutines = () => {
+    const {t} = useTranslation();
+
     const [routines, setRoutines] = useState(() => {
         const savedRoutines = localStorage.getItem('routines');
         if (savedRoutines) return JSON.parse(savedRoutines);
@@ -31,7 +34,7 @@ export const useRoutines = (lang) => {
     const createNewRoutine = () => {
         const newRoutine = {
             id: crypto.randomUUID(),
-            name: lang === "en" ? "New Routine" : "Neue Routine",
+            name: t('ui.newRoutine'),
             exercises: []
         };
         setRoutines(prev => [...prev, newRoutine]);

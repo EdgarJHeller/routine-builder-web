@@ -3,7 +3,8 @@
     "next": "Nächste Übung:",
     "switch": "Seite wechseln!",
     "switchNow": "Jetzt Seite wechseln!",
-    "complete": "Training beendet!"
+    "complete": "Training beendet!",
+    "getReady": "Mach dich bereit!"
   },
   "ui": {
     "editorTitle": "Workout Editor",
@@ -52,6 +53,16 @@
     "dismiss": "Ablehnen",
     "getReady": "Mach dich bereit!",
     "shareRoutine": "Routine teilen",
-    "deleteRoutine": "Routine löschen"
+    "deleteRoutine": "Routine löschen",
+    "back": "Zurück",
+    "routineNamePlaceholder": "Routinen-Name...",
+    "exitWorkout": "Training beenden",
+    "resetTimer": "Timer zurücksetzen",
+    "prevExercise": "Vorherige Übung",
+    "nextExercise": "Nächste Übung",
+    "startTimer": "Timer starten",
+    "pauseTimer": "Timer pausieren",
+    "importSuccess": "\"{{name}}\" erfolgreich importiert",
+    "newRoutine": "Neue Routine"
   }
 }

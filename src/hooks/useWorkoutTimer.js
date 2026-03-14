@@ -1,12 +1,14 @@
 import {useCallback, useEffect, useRef, useState} from 'react';
-import {translations} from '../locales';
+import {useTranslation} from 'react-i18next';
 import {getVoice} from '../utils/speechUtils.js';
 import {playBeep} from '../utils/audioUtils.js';
 
 export const PREP_DURATION = 5;
 
-const useWorkoutTimer = (exercises, lang = 'en') => {
-    const t = translations[lang];
+const useWorkoutTimer = (exercises) => {
+    const {t, i18n} = useTranslation();
+    const lang = i18n.language?.slice(0, 2);
+
     const [currentExerciseIndex, setCurrentExerciseIndex] = useState(0);
     const [timeLeft, setTimeLeft] = useState(exercises[0]?.durationSeconds || 0);
     const [isPaused, setIsPaused] = useState(true);
@@ -35,7 +37,7 @@ const useWorkoutTimer = (exercises, lang = 'en') => {
         if (!isPrepping || isPaused) return;
 
         if (prepTimeLeft === PREP_DURATION) {
-            speak(`${t.timer.next} ${currentExercise?.name}`, lang);
+            speak(`${t('timer.next')} ${currentExercise?.name}`, lang);
         }
 
         if (prepTimeLeft <= 0) {
@@ -49,7 +51,7 @@ const useWorkoutTimer = (exercises, lang = 'en') => {
 
         const id = setTimeout(() => setPrepTimeLeft(p => p - 1), 1000);
         return () => clearTimeout(id);
-    }, [isPrepping, isPaused, prepTimeLeft, currentExercise, lang, speak, t.timer.next]);
+    }, [isPrepping, isPaused, prepTimeLeft, currentExercise, lang, speak, t]);
 
     // Main timer
     useEffect(() => {
@@ -91,7 +93,7 @@ const useWorkoutTimer = (exercises, lang = 'en') => {
     useEffect(() => {
         if (!isSideSwitchPaused) return;
 
-        speak(t.timer.switchNow, lang);
+        speak(t('timer.switchNow'), lang);
 
         sideSwitchTimeout.current = setTimeout(() => {
             playBeep(660, 0.15);
@@ -100,7 +102,7 @@ const useWorkoutTimer = (exercises, lang = 'en') => {
         }, 3000);
 
         return () => clearTimeout(sideSwitchTimeout.current);
-    }, [isSideSwitchPaused, lang, speak, t.timer.switchNow]);
+    }, [isSideSwitchPaused, lang, speak, t]);
 
     // Countdown speak
     useEffect(() => {

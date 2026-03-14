@@ -1,5 +1,5 @@
-import { describe, it, expect, vi } from 'vitest';
-import { render, screen } from '@testing-library/react';
+import {describe, expect, it, vi} from 'vitest';
+import {render, screen} from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import DeleteConfirmModal from '../../components/common/DeleteConfirmModal.jsx';
 
@@ -13,10 +13,9 @@ const t = {
 
 describe('DeleteConfirmModal', () => {
     it('renders nothing when exerciseName is null', () => {
-        const { container } = render(
+        const {container} = render(
             <DeleteConfirmModal
                 exerciseName={null}
-                t={t}
                 onCancel={vi.fn()}
                 onConfirm={vi.fn()}
             />
@@ -28,7 +27,6 @@ describe('DeleteConfirmModal', () => {
         render(
             <DeleteConfirmModal
                 exerciseName="Push-ups"
-                t={t}
                 onCancel={vi.fn()}
                 onConfirm={vi.fn()}
             />
@@ -41,7 +39,6 @@ describe('DeleteConfirmModal', () => {
         render(
             <DeleteConfirmModal
                 exerciseName="Push-ups"
-                t={t}
                 onCancel={onCancel}
                 onConfirm={vi.fn()}
             />
@@ -55,7 +52,6 @@ describe('DeleteConfirmModal', () => {
         render(
             <DeleteConfirmModal
                 exerciseName="Push-ups"
-                t={t}
                 onCancel={vi.fn()}
                 onConfirm={onConfirm}
             />
@@ -69,7 +65,6 @@ describe('DeleteConfirmModal', () => {
         render(
             <DeleteConfirmModal
                 exerciseName="Push-ups"
-                t={t}
                 onCancel={vi.fn()}
                 onConfirm={onConfirm}
             />

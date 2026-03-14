@@ -1,8 +1,8 @@
+import {useTranslation} from 'react-i18next';
 import {ArrowLeft, Play, Plus} from "lucide-react";
 import {useState} from "react";
 import {useFocusTrap} from "../../hooks/useFocusTrap.js";
 import {useKeydown} from "../../hooks/useKeydown.js";
-import {translations} from "../../locales/index.js";
 import DeleteConfirmModal from "../common/DeleteConfirmModal.jsx";
 import ExerciseItem from "../exercises/ExerciseItem.jsx";
 import ExerciseModal from "../exercises/ExerciseModal.jsx";
@@ -15,8 +15,6 @@ const RoutineEditor = ({
                            routineName,
                            onUpdateRoutineName,
                            onBack,
-                           lang,
-                           toggleLanguage,
                            addExercise,
                            deleteExercise,
                            moveExercise,
@@ -26,7 +24,7 @@ const RoutineEditor = ({
                            theme,
                            toggleTheme,
                        }) => {
-    const t = translations[lang];
+    const {t} = useTranslation();
     const [isModalOpen, setIsModalOpen] = useState(false);
     const [name, setName] = useState("");
     const [duration, setDuration] = useState("");
@@ -92,12 +90,12 @@ const RoutineEditor = ({
                            focus:outline-none focus:ring-2 focus:ring-brand rounded-icon pr-2"
                     >
                         <ArrowLeft size={20}/>
-                        {lang === "en" ? "Back" : "Zurück"}
+                        {t('ui.back')}
                     </button>
 
                     <div className="flex items-center gap-2">
                         <ThemeToggle theme={theme} onToggle={toggleTheme}/>
-                        <LanguageToggle lang={lang} onToggle={toggleLanguage}/>
+                        <LanguageToggle/>
                     </div>
                 </div>
 
@@ -106,12 +104,12 @@ const RoutineEditor = ({
                         type="text"
                         value={routineName || ""}
                         onChange={(e) => onUpdateRoutineName(e.target.value)}
-                        placeholder={lang === "en" ? "Routine Name..." : "Routinen-Name..."}
+                        placeholder={t('ui.routineNamePlaceholder')}
                         className="text-3xl font-extrabold text-content-primary bg-transparent outline-none w-full
                            border-b-2 border-transparent focus:border-brand transition-colors
                            placeholder:text-content-muted pb-1"
                     />
-                    <p className="text-content-secondary mt-2">{t.ui.editorSubtitle || "Design your routine"}</p>
+                    <p className="text-content-secondary mt-2">{t('ui.editorSubtitle')}</p>
                 </div>
             </div>
 
@@ -122,7 +120,6 @@ const RoutineEditor = ({
                         exercise={ex}
                         index={idx}
                         totalExercises={exercises.length}
-                        t={t}
                         onMove={moveExercise}
                         onEdit={handleEdit}
                         onDelete={setExerciseToDelete}
@@ -134,14 +131,14 @@ const RoutineEditor = ({
                         closeModal();
                         setIsModalOpen(true);
                     }} className="btn-add">
-                        <Plus size={20}/> {t.ui.addExercise}
+                        <Plus size={20}/> {t('ui.addExercise')}
                     </button>
                 </li>
 
                 {exercises.length > 0 && (
                     <li>
                         <button onClick={onStart} className="btn-primary mt-8 bg-success hover:bg-success-hover">
-                            <Play size={20} fill="currentColor"/> {lang === "en" ? "Start Routine" : "Routine Starten"}
+                            <Play size={20} fill="currentColor"/> {t('ui.startRoutine')}
                         </button>
                     </li>
                 )}
@@ -151,7 +148,6 @@ const RoutineEditor = ({
                 <ExerciseModal
                     modalRef={editModalRef}
                     editingId={editingId}
-                    t={t}
                     name={name} setName={setName}
                     duration={duration} setDuration={setDuration}
                     isSideSwitch={isSideSwitch} setIsSideSwitch={setIsSideSwitch}
@@ -163,12 +159,11 @@ const RoutineEditor = ({
             <DeleteConfirmModal
                 modalRef={deleteModalRef}
                 exerciseName={exerciseToDelete?.name}
-                t={t}
                 onCancel={() => setExerciseToDelete(null)}
                 onConfirm={confirmDelete}
             />
 
-            <Footer onOpenLegal={onOpenLegal} t={t}/>
+            <Footer onOpenLegal={onOpenLegal}/>
         </main>
     );
 };

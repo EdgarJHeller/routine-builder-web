@@ -6,6 +6,9 @@ import {createRoot} from 'react-dom/client'
 import './index.css'
 import "@fontsource-variable/dm-sans";
 
+// i18n
+import './i18n.js';
+
 // App
 import App from './App.jsx'
 

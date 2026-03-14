@@ -3,7 +3,9 @@
     "next": "Next exercise:",
     "switch": "Switch sides!",
     "switchNow": "Switch sides now!",
-    "complete": "Workout complete!"
+    "complete": "Workout complete!",
+    "getReady": "Get ready!"
+
   },
   "ui": {
     "editorTitle": "Workout Editor",
@@ -52,6 +54,16 @@
     "dismiss": "Dismiss",
     "getReady": "Get Ready!",
     "shareRoutine": "Share routine",
-    "deleteRoutine": "Delete routine"
+    "deleteRoutine": "Delete routine",
+    "back": "Back",
+    "routineNamePlaceholder": "Routine Name...",
+    "exitWorkout": "Exit Workout",
+    "resetTimer": "Reset Timer",
+    "prevExercise": "Previous Exercise",
+    "nextExercise": "Next Exercise",
+    "startTimer": "Start Timer",
+    "pauseTimer": "Pause Timer",
+    "importSuccess": "\"{{name}}\" imported successfully",
+    "newRoutine": "New Routine"
   }
 }

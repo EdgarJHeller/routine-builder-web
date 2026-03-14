@@ -1,17 +1,17 @@
+import {useTranslation} from 'react-i18next';
 import {List, Share2, Trash2} from "lucide-react";
-import React from "react";
 import {formatDuration} from "../../utils/formatDuration.js";
 
-const RoutineItem = ({routine, t, onSelect, onDelete, showToast}) => {
+const RoutineItem = ({routine, onSelect, onDelete, showToast}) => {
+    const {t} = useTranslation();
 
     const handleShare = (e) => {
         e.stopPropagation();
         try {
             const encoded = btoa(encodeURIComponent(JSON.stringify(routine)));
             const shareUrl = `${window.location.origin}${window.location.pathname}?routine=${encoded}`;
-
             navigator.clipboard.writeText(shareUrl).then(() => {
-                showToast(t.ui.linkCopied);
+                showToast(t('ui.linkCopied'));
             });
         } catch (error) {
             console.error("Fehler beim Erstellen des Links", error);
@@ -30,11 +30,11 @@ const RoutineItem = ({routine, t, onSelect, onDelete, showToast}) => {
                 </div>
                 <div className="flex flex-col">
                     <span className="font-bold text-content-primary text-lg">
-                        {routine.name || t.ui.unnamedRoutine}
+                        {routine.name || t('ui.unnamedRoutine')}
                     </span>
                     <span className="text-xs text-content-secondary font-bold tracking-wider mt-1">
                         {routine.exercises?.length || 0}{" "}
-                        {routine.exercises?.length === 1 ? t.ui.exercise || "Exercise" : t.ui.exercises || "Exercises"}
+                        {routine.exercises?.length === 1 ? t('ui.exercise') : t('ui.exercises')}
                         {" · "}
                         {formatDuration(routine.exercises)}
                     </span>
@@ -43,11 +43,11 @@ const RoutineItem = ({routine, t, onSelect, onDelete, showToast}) => {
 
             <div className="flex items-center gap-1 shrink-0">
                 <button onClick={handleShare} className="btn-icon-secondary"
-                        aria-label={t.ui.shareRoutine || "Share routine"}>
+                        aria-label={t('ui.shareRoutine')}>
                     <Share2 size={20}/>
                 </button>
                 <button onClick={() => onDelete(routine)} className="btn-icon-danger"
-                        aria-label={t.ui.deleteRoutine || "Delete routine"}>
+                        aria-label={t('ui.deleteRoutine')}>
                     <Trash2 size={20}/>
                 </button>
             </div>

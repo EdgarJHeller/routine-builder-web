@@ -7,11 +7,11 @@ export function Footer({onOpenLegal}) {
         <footer className="absolute bottom-8 w-full flex justify-center gap-6 text-content-secondary text-xs">
             <button onClick={() => onOpenLegal("impressum")}
                     className="hover:underline focus:ring-2 focus:ring-brand">
-                {t('ui.imprint')}
+                {t('footer.imprint')}
             </button>
             <button onClick={() => onOpenLegal("privacy")}
                     className="hover:underline focus:ring-2 focus:ring-brand">
-                {t('ui.privacy')}
+                {t('footer.privacy')}
             </button>
             <a href="https://github.com/EdgarJHeller/routine-builder-web"
                target="_blank"

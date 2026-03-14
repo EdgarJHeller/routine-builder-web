@@ -90,7 +90,7 @@ const RoutineEditor = ({
                            focus:outline-none focus:ring-2 focus:ring-brand rounded-icon pr-2"
                     >
                         <ArrowLeft size={20}/>
-                        {t('ui.back')}
+                        {t('editor.back')}
                     </button>
 
                     <div className="flex items-center gap-2">
@@ -104,12 +104,12 @@ const RoutineEditor = ({
                         type="text"
                         value={routineName || ""}
                         onChange={(e) => onUpdateRoutineName(e.target.value)}
-                        placeholder={t('ui.routineNamePlaceholder')}
+                        placeholder={t('editor.routineNamePlaceholder')}
                         className="text-3xl font-extrabold text-content-primary bg-transparent outline-none w-full
                            border-b-2 border-transparent focus:border-brand transition-colors
                            placeholder:text-content-muted pb-1"
                     />
-                    <p className="text-content-secondary mt-2">{t('ui.editorSubtitle')}</p>
+                    <p className="text-content-secondary mt-2">{t('editor.subtitle')}</p>
                 </div>
             </div>
 
@@ -131,14 +131,14 @@ const RoutineEditor = ({
                         closeModal();
                         setIsModalOpen(true);
                     }} className="btn-add">
-                        <Plus size={20}/> {t('ui.addExercise')}
+                        <Plus size={20}/> {t('editor.addExercise')}
                     </button>
                 </li>
 
                 {exercises.length > 0 && (
                     <li>
                         <button onClick={onStart} className="btn-primary mt-8 bg-success hover:bg-success-hover">
-                            <Play size={20} fill="currentColor"/> {t('ui.startRoutine')}
+                            <Play size={20} fill="currentColor"/> {t('editor.startRoutine')}
                         </button>
                     </li>
                 )}

@@ -18,16 +18,16 @@ export default function DeleteConfirmModal({
                     Delete Exercise?
                 </h3>
                 <p className="text-content-secondary mb-6">
-                    {t('ui.deleteWarning')}{" "}
+                    {t('editor.deleteWarning')}{" "}
                     <span className="font-bold text-content-primary">{exerciseName}</span>?
                 </p>
                 <div className="flex gap-3">
                     <button onClick={onCancel} className="btn-modal-ghost">
-                        {t('ui.cancel')}
+                        {t('editor.cancel')}
                     </button>
                     <button onClick={onConfirm}
                             className="btn-modal-primary bg-danger hover:bg-danger-text focus:ring-danger">
-                        {t('ui.deleteButton')}
+                        {t('editor.deleteButton')}
                     </button>
                 </div>
             </div>

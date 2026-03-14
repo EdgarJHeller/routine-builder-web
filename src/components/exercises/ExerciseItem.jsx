@@ -12,7 +12,7 @@ export default function ExerciseItem({exercise, index, totalExercises, onMove, o
                     disabled={index === 0}
                     className="p-1 disabled:opacity-20 text-brand
                        focus:outline-none focus:ring-2 focus:ring-brand rounded"
-                    aria-label={t('ui.moveUp')}
+                    aria-label={t('editor.moveUp')}
                 >
                     <ChevronUp size={20}/>
                 </button>
@@ -21,7 +21,7 @@ export default function ExerciseItem({exercise, index, totalExercises, onMove, o
                     disabled={index === totalExercises - 1}
                     className="p-1 disabled:opacity-20 text-brand
                        focus:outline-none focus:ring-2 focus:ring-brand rounded"
-                    aria-label={t('ui.moveDown')}
+                    aria-label={t('editor.moveDown')}
                 >
                     <ChevronDown size={20}/>
                 </button>
@@ -43,7 +43,7 @@ export default function ExerciseItem({exercise, index, totalExercises, onMove, o
 
             <div className="flex items-center gap-1">
                 <button onClick={() => onEdit(exercise)} className="btn-icon-secondary"
-                        aria-label={t('ui.editExercise')}>
+                        aria-label={t('editor.editExercise')}>
                     <Edit2 size={20}/>
                 </button>
                 <button onClick={() => onDelete(exercise)} className="btn-icon-danger"

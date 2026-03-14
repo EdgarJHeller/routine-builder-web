@@ -41,11 +41,11 @@ function App() {
         const importedRoutine = {
             ...pendingRoutine,
             id: crypto.randomUUID(),
-            name: pendingRoutine.name + t('ui.importedSuffix'),
+            name: pendingRoutine.name + t('library.importedSuffix'),
         };
         setRoutines(prev => [...prev, importedRoutine]);
         setPendingRoutine(null);
-        showToast(t('ui.importSuccess', {name: pendingRoutine.name}));
+        showToast(t('library.importSuccess', {name: pendingRoutine.name}));
     };
 
     return (
@@ -55,7 +55,7 @@ function App() {
                 {activeLegalPage && (
                     <LegalModal
                         title={activeLegalPage === "impressum" ? "Impressum" : "Datenschutz"}
-                        backText={t('ui.back')}
+                        backText={t('editor.back')}
                         onClose={() => setActiveLegalPage(null)}
                     >
                         {activeLegalPage === "impressum" ? IMPRESSUM_CONTENT : PRIVACY_CONTENT}

@@ -34,7 +34,7 @@ export const useRoutines = () => {
     const createNewRoutine = () => {
         const newRoutine = {
             id: crypto.randomUUID(),
-            name: t('ui.newRoutine'),
+            name: t('library.newRoutine'),
             exercises: []
         };
         setRoutines(prev => [...prev, newRoutine]);

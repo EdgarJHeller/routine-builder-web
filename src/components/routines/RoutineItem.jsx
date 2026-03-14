@@ -11,7 +11,7 @@ const RoutineItem = ({routine, onSelect, onDelete, showToast}) => {
             const encoded = btoa(encodeURIComponent(JSON.stringify(routine)));
             const shareUrl = `${window.location.origin}${window.location.pathname}?routine=${encoded}`;
             navigator.clipboard.writeText(shareUrl).then(() => {
-                showToast(t('ui.linkCopied'));
+                showToast(t('library.linkCopied'));
             });
         } catch (error) {
             console.error("Fehler beim Erstellen des Links", error);
@@ -30,11 +30,11 @@ const RoutineItem = ({routine, onSelect, onDelete, showToast}) => {
                 </div>
                 <div className="flex flex-col">
                     <span className="font-bold text-content-primary text-lg">
-                        {routine.name || t('ui.unnamedRoutine')}
+                        {routine.name || t('library.unnamedRoutine')}
                     </span>
                     <span className="text-xs text-content-secondary font-bold tracking-wider mt-1">
                         {routine.exercises?.length || 0}{" "}
-                        {routine.exercises?.length === 1 ? t('ui.exercise') : t('ui.exercises')}
+                        {routine.exercises?.length === 1 ? t('library.exercise') : t('library.exercises')}
                         {" · "}
                         {formatDuration(routine.exercises)}
                     </span>
@@ -43,11 +43,11 @@ const RoutineItem = ({routine, onSelect, onDelete, showToast}) => {
 
             <div className="flex items-center gap-1 shrink-0">
                 <button onClick={handleShare} className="btn-icon-secondary"
-                        aria-label={t('ui.shareRoutine')}>
+                        aria-label={t('library.shareRoutine')}>
                     <Share2 size={20}/>
                 </button>
                 <button onClick={() => onDelete(routine)} className="btn-icon-danger"
-                        aria-label={t('ui.deleteRoutine')}>
+                        aria-label={t('library.deleteRoutine')}>
                     <Trash2 size={20}/>
                 </button>
             </div>

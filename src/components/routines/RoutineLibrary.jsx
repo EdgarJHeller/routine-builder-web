@@ -26,10 +26,10 @@ const RoutineLibrary = ({
         <div className="bg-surface-card border-b border-stroke-default px-6 py-8 mb-6 flex justify-between items-start">
             <div>
                 <h2 className="text-3xl font-extrabold text-content-primary">
-                    {t('ui.libraryTitle')}
+                    {t('library.title')}
                 </h2>
                 <p className="text-content-secondary mt-1">
-                    {t('ui.librarySubtitle')}
+                    {t('library.subtitle')}
                 </p>
             </div>
             <div className="flex items-center gap-2">
@@ -63,7 +63,7 @@ const RoutineLibrary = ({
 
                 <li>
                     <button onClick={onCreateRoutine} className="btn-add mt-4">
-                        <Plus size={20}/> {t('ui.addRoutine')}
+                        <Plus size={20}/> {t('library.addRoutine')}
                     </button>
                 </li>
             </ul>

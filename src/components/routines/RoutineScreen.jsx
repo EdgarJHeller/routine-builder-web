@@ -70,7 +70,7 @@ const RoutineScreen = ({exercises, onExit}) => {
                     onClick={onExit}
                     className="w-full py-4 bg-surface-card text-content-primary font-bold rounded-card shadow-card-lg active:scale-95 focus:ring-4 focus:ring-success outline-none"
                 >
-                    {t('ui.backToEditor')}
+                    {t('workout.backToEditor')}
                 </button>
             </div>
         );
@@ -79,13 +79,13 @@ const RoutineScreen = ({exercises, onExit}) => {
     return (
         <div className="min-h-screen bg-surface-workout text-white flex flex-col p-6 relative overflow-hidden">
             <div className="flex justify-between items-center mb-8">
-                <button onClick={onExit} aria-label={t('ui.exitWorkout')} className={iconBtnBase}>
+                <button onClick={onExit} aria-label={t('workout.exitWorkout')} className={iconBtnBase}>
                     <X size={24}/>
                 </button>
                 <span className="text-xs font-bold tracking-widest text-content-workout uppercase">
-                    {t('ui.workoutScreenTitle')}
+                    {t('workout.screenTitle')}
                 </span>
-                <button onClick={reset} aria-label={t('ui.resetTimer')} className={iconBtnBase}>
+                <button onClick={reset} aria-label={t('workout.resetTimer')} className={iconBtnBase}>
                     <RotateCcw size={20}/>
                 </button>
             </div>
@@ -126,15 +126,15 @@ const RoutineScreen = ({exercises, onExit}) => {
             </div>
 
             <div className="grid grid-cols-3 gap-4 items-center mb-12">
-                <button onClick={prev} aria-label={t('ui.prevExercise')} className={controlBtnBase}>
+                <button onClick={prev} aria-label={t('workout.prevExercise')} className={controlBtnBase}>
                     <SkipBack size={32}/>
                 </button>
                 <button onClick={isPaused ? start : pause}
-                        aria-label={isPaused ? t('ui.startTimer') : t('ui.pauseTimer')}
+                        aria-label={isPaused ? t('workout.startTimer') : t('workout.pauseTimer')}
                         className={mainPlayBtn}>
                     {isPaused ? <Play size={36} fill="currentColor"/> : <Pause size={36} fill="currentColor"/>}
                 </button>
-                <button onClick={next} aria-label={t('ui.nextExercise')} className={controlBtnBase}>
+                <button onClick={next} aria-label={t('workout.nextExercise')} className={controlBtnBase}>
                     <SkipForward size={32}/>
                 </button>
             </div>
@@ -144,7 +144,7 @@ const RoutineScreen = ({exercises, onExit}) => {
                         flex items-center justify-between">
                     <div>
                         <p className="text-xs font-bold text-content-workout uppercase">
-                            {t('ui.workoutScreenNextUp')}
+                            {t('workout.nextUp')}
                         </p>
                         <p className="font-bold text-white">{nextExercise.name}</p>
                     </div>

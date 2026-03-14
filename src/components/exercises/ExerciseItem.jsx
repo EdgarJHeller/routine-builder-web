@@ -35,7 +35,7 @@ export default function ExerciseItem({exercise, index, totalExercises, onMove, o
                     </span>
                     {exercise.isSideSwitchRequired && (
                         <span className="badge bg-warning-subtle text-warning-text">
-                            {t('ui.switch')}
+                            {t('editor.sideSwitchBadge')}
                         </span>
                     )}
                 </div>

@@ -11,7 +11,7 @@ export default defineConfig({
             manifest: {
                 name: 'Routine Editor',
                 short_name: 'RoutineEditor',
-                description: 'Minimalistischer Workout Timer',
+                description: 'Minimalistischer Routine Timer',
                 theme_color: '#0f172a',
                 background_color: '#0f172a',
                 display: 'standalone',

@@ -2,15 +2,15 @@ import {useTranslation} from 'react-i18next';
 import {Pause, Play, RotateCcw, SkipBack, SkipForward, X, Zap,} from "lucide-react";
 import {useKeydown} from "../../hooks/useKeydown.js";
 import {useWakeLock} from "../../hooks/useWakeLock.js";
-import useWorkoutTimer, {PREP_DURATION} from "../../hooks/useWorkoutTimer.js";
+import useRoutineTimer, {PREP_DURATION} from "../../hooks/useRoutineTimer.js";
 
 const RoutineScreen = ({exercises, onExit}) => {
-    const {t, i18n} = useTranslation();
+    const {t} = useTranslation();
 
     const iconBtnBase =
-        "p-2 text-content-workout hover:text-white transition-colors focus:outline-none focus:ring-2 focus:ring-brand rounded-lg";
+        "p-2 text-content-routine hover:text-white transition-colors focus:outline-none focus:ring-2 focus:ring-brand rounded-lg";
     const controlBtnBase =
-        "flex justify-center p-4 text-content-workout hover:text-white transition-colors focus:outline-none focus:ring-2 focus:ring-brand rounded-full";
+        "flex justify-center p-4 text-content-routine hover:text-white transition-colors focus:outline-none focus:ring-2 focus:ring-brand rounded-full";
     const mainPlayBtn =
         "flex justify-center items-center w-20 h-20 bg-surface-card text-content-primary rounded-full shadow-xl active:scale-90 transition-transform mx-auto focus:outline-none focus:ring-4 focus:ring-brand";
 
@@ -20,7 +20,7 @@ const RoutineScreen = ({exercises, onExit}) => {
         timeLeft,
         isPaused,
         isSideSwitchAlert,
-        isWorkoutComplete,
+        isRoutineComplete,
         start,
         pause,
         reset,
@@ -28,9 +28,9 @@ const RoutineScreen = ({exercises, onExit}) => {
         prev,
         prepTimeLeft,
         isPrepping,
-    } = useWorkoutTimer(exercises);
+    } = useRoutineTimer(exercises);
 
-    useWakeLock(!isWorkoutComplete);
+    useWakeLock(!isRoutineComplete);
 
     useKeydown(" ", () => {
         if (isPaused) {
@@ -52,10 +52,10 @@ const RoutineScreen = ({exercises, onExit}) => {
         ? (timeLeft / currentExercise.durationSeconds) * 100
         : 0;
 
-    if (isWorkoutComplete) {
+    if (isRoutineComplete) {
         return (
             <div
-                className="min-h-screen bg-surface-workout flex flex-col items-center justify-center p-6 text-center"
+                className="min-h-screen bg-surface-routine flex flex-col items-center justify-center p-6 text-center"
                 role="alert"
             >
                 <div
@@ -70,28 +70,28 @@ const RoutineScreen = ({exercises, onExit}) => {
                     onClick={onExit}
                     className="w-full py-4 bg-surface-card text-content-primary font-bold rounded-card shadow-card-lg active:scale-95 focus:ring-4 focus:ring-success outline-none"
                 >
-                    {t('workout.backToEditor')}
+                    {t('routine.backToEditor')}
                 </button>
             </div>
         );
     }
 
     return (
-        <div className="min-h-screen bg-surface-workout text-white flex flex-col p-6 relative overflow-hidden">
+        <div className="min-h-screen bg-surface-routine text-white flex flex-col p-6 relative overflow-hidden">
             <div className="flex justify-between items-center mb-8">
-                <button onClick={onExit} aria-label={t('workout.exitWorkout')} className={iconBtnBase}>
+                <button onClick={onExit} aria-label={t('routine.exitRoutine')} className={iconBtnBase}>
                     <X size={24}/>
                 </button>
-                <span className="text-xs font-bold tracking-widest text-content-workout uppercase">
-                    {t('workout.screenTitle')}
+                <span className="text-xs font-bold tracking-widest text-content-routine uppercase">
+                    {t('routine.screenTitle')}
                 </span>
-                <button onClick={reset} aria-label={t('workout.resetTimer')} className={iconBtnBase}>
+                <button onClick={reset} aria-label={t('routine.resetTimer')} className={iconBtnBase}>
                     <RotateCcw size={20}/>
                 </button>
             </div>
 
             <div className="flex-1 flex flex-col items-center justify-center">
-                <h1 className="text-2xl font-bold text-content-workout mb-2 uppercase tracking-tight">
+                <h1 className="text-2xl font-bold text-content-routine mb-2 uppercase tracking-tight">
                     {isPrepping ? t('timer.getReady') : currentExercise?.name}
                 </h1>
 
@@ -126,29 +126,29 @@ const RoutineScreen = ({exercises, onExit}) => {
             </div>
 
             <div className="grid grid-cols-3 gap-4 items-center mb-12">
-                <button onClick={prev} aria-label={t('workout.prevExercise')} className={controlBtnBase}>
+                <button onClick={prev} aria-label={t('routine.prevExercise')} className={controlBtnBase}>
                     <SkipBack size={32}/>
                 </button>
                 <button onClick={isPaused ? start : pause}
-                        aria-label={isPaused ? t('workout.startTimer') : t('workout.pauseTimer')}
+                        aria-label={isPaused ? t('routine.startTimer') : t('routine.pauseTimer')}
                         className={mainPlayBtn}>
                     {isPaused ? <Play size={36} fill="currentColor"/> : <Pause size={36} fill="currentColor"/>}
                 </button>
-                <button onClick={next} aria-label={t('workout.nextExercise')} className={controlBtnBase}>
+                <button onClick={next} aria-label={t('routine.nextExercise')} className={controlBtnBase}>
                     <SkipForward size={32}/>
                 </button>
             </div>
 
             {nextExercise && (
-                <div className="bg-surface-workout-muted border border-stroke-workout p-4 rounded-card
+                <div className="bg-surface-routine-muted border border-stroke-routine p-4 rounded-card
                         flex items-center justify-between">
                     <div>
-                        <p className="text-xs font-bold text-content-workout uppercase">
-                            {t('workout.nextUp')}
+                        <p className="text-xs font-bold text-content-routine uppercase">
+                            {t('routine.nextUp')}
                         </p>
                         <p className="font-bold text-white">{nextExercise.name}</p>
                     </div>
-                    <span className="text-content-workout font-bold">
+                    <span className="text-content-routine font-bold">
                         {nextExercise.durationSeconds}s
                     </span>
                 </div>

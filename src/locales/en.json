@@ -3,23 +3,24 @@
     "next": "Next exercise:",
     "switch": "Switch sides!",
     "switchNow": "Switch sides now!",
-    "complete": "Workout complete!",
+    "complete": "Routine complete!",
     "getReady": "Get ready!"
   },
   "editor": {
-    "title": "Workout Editor",
+    "title": "Routine Editor",
     "subtitle": "Design your routine",
     "routineNamePlaceholder": "Routine Name...",
     "addExercise": "Add Exercise",
     "newExercise": "New Exercise",
     "editExercise": "Edit Exercise",
     "sideSwitchLabel": "Side Switch Halfway?",
+    "sideSwitchBadge": "Side Switch",
     "deleteWarning": "Are you sure you want to delete:",
     "deleteButton": "Delete",
     "cancel": "Cancel",
     "save": "Save",
     "add": "Add",
-    "startRoutine": "Start Workout",
+    "startRoutine": "Start Routine",
     "back": "Back",
     "placeholder": {
       "name": "Exercise Name",
@@ -30,7 +31,7 @@
   },
   "library": {
     "title": "My Routines",
-    "subtitle": "Choose or create a workout",
+    "subtitle": "Choose or create a routine",
     "addRoutine": "Add Routine",
     "unnamedRoutine": "Unnamed Routine",
     "exercise": "Exercise",
@@ -46,10 +47,10 @@
     "dismiss": "Dismiss",
     "newRoutine": "New Routine"
   },
-  "workout": {
-    "screenTitle": "Workout in Progress",
+  "routine": {
+    "screenTitle": "Routine in Progress",
     "nextUp": "Next Up",
-    "exitWorkout": "Exit Workout",
+    "exitRoutine": "Exit Routine",
     "resetTimer": "Reset Timer",
     "prevExercise": "Previous Exercise",
     "nextExercise": "Next Exercise",

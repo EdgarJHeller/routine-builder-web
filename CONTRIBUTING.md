@@ -60,7 +60,7 @@ All colors, border radii, and shadows are defined centrally in `index.css` under
 | `--color-surface-app` | `bg-surface-app` | Page background |
 | `--color-surface-card` | `bg-surface-card` | Card / list item backgrounds |
 | `--color-surface-subtle` | `bg-surface-subtle` | Icon container backgrounds |
-| `--color-surface-workout` | `bg-surface-workout` | Workout screen dark background |
+| `--color-surface-routine` | `bg-surface-routine` | Routine screen dark background |
 | `--color-brand` | `bg-brand`, `text-brand`, `border-brand` | Primary accent (buttons, focus rings) |
 | `--color-secondary` | `bg-secondary`, `text-secondary` | Secondary accent (share actions) |
 | `--color-success` | `bg-success`, `hover:bg-success-hover` | Start button, positive actions |
@@ -109,7 +109,7 @@ Coverage is automatically uploaded to Codecov on every CI run.
 We follow [Conventional Commits](https://www.conventionalcommits.org/):
 ```
 feat(editor): add rest-timer between exercises
-fix(workout): prevent timer skipping on rapid tap
+fix(routine): prevent timer skipping on rapid tap
 refactor(styles): update surface tokens in index.css
 docs: update CONTRIBUTING with token table
 test: add coverage for useToast hook

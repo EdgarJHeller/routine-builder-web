@@ -2,17 +2,26 @@ import {useEffect, useState} from "react";
 
 export function useTheme() {
     const [theme, setTheme] = useState(() => {
-        const saved = localStorage.getItem("theme");
-        if (saved) return saved;
-        return window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+        return localStorage.getItem("theme") || "system";
     });
 
     useEffect(() => {
-        document.documentElement.setAttribute("data-theme", theme);
-        localStorage.setItem("theme", theme);
+        if (theme === "system") {
+            document.documentElement.removeAttribute("data-theme");
+            localStorage.removeItem("theme");
+        } else {
+            document.documentElement.setAttribute("data-theme", theme);
+            localStorage.setItem("theme", theme);
+        }
     }, [theme]);
 
-    const toggleTheme = () => setTheme(t => t === "dark" ? "light" : "dark");
+    const toggleTheme = () => {
+        setTheme(t => {
+            if (t === "system") return "light";
+            if (t === "light") return "dark";
+            return "system";
+        });
+    };
 
     return {theme, toggleTheme};
 }

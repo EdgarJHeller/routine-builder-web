@@ -18,7 +18,7 @@ A minimalist workout routine builder and timer. Designed for focus, this app avo
 * **Routine Sharing:** Share routines via a link — recipients get a preview before importing.
 * **Keyboard Navigation:** Full support for building routines using only your keyboard.
 * **Local-First Privacy:** All workout data is stored in your browser's `localStorage` — no accounts or servers required.
-* **Dark Mode:** Follows system preference with a manual toggle override, persisted via `localStorage`.
+* **Dark Mode:** Three-way toggle — follows system preference by default, with manual light/dark override persisted via `localStorage`.
 * **Bilingual:** Full English and German support.
 
 ## 🛠️ Tech Stack
@@ -26,7 +26,7 @@ A minimalist workout routine builder and timer. Designed for focus, this app avo
 * **Framework:** [React](https://reactjs.org/) + [Vite](https://vitejs.dev/)
 * **Styling:** [Tailwind CSS v4](https://tailwindcss.com/) with semantic design tokens in `index.css`
 * **Icons:** [Lucide React](https://lucide.dev/)
-* **Font:** [DM Sans](https://fonts.google.com/specimen/DM+Sans) via `@fontsource/dm-sans` (self-hosted)
+* **Font:** [DM Sans](https://fonts.google.com/specimen/DM+Sans) via `@fontsource-variable/dm-sans` (self-hosted variable font)
 * **PWA:** [vite-plugin-pwa](https://vite-pwa-org.netlify.app/)
 * **Testing:** [Vitest](https://vitest.dev/) + [React Testing Library](https://testing-library.com/)
 * **CI:** GitHub Actions + [Codecov](https://codecov.io)

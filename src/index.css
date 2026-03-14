@@ -176,15 +176,13 @@
    via color-mix() since they mix with white/black, not surface colors.
    ────────────────────────────────────────────────────────────────────────── */
 @media (prefers-color-scheme: dark) {
-    :root {
+    :root:not([data-theme="light"]):not([data-theme="dark"]) {
         --color-surface-app: #0f172a;
         --color-surface-card: #1e293b;
         --color-surface-subtle: #334155;
-
         --color-stroke-default: #334155;
         --color-stroke-subtle: #1e293b;
         --color-stroke-add: #475569;
-
         --color-content-primary: #f8fafc;
         --color-content-secondary: #94a3b8;
         --color-content-muted: #475569;

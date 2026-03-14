@@ -16,7 +16,7 @@ export default function ExerciseModal({
 
     return (
         <div
-            className="fixed inset-0 bg-surface-workout/60 backdrop-blur-sm z-50 flex items-end sm:items-center justify-center p-4">
+            className="fixed inset-0 bg-surface-routine/60 backdrop-blur-sm z-50 flex items-end sm:items-center justify-center p-4">
             <div ref={modalRef} className="bg-surface-card w-full max-w-sm rounded-t-3xl sm:rounded-3xl p-8 shadow-2xl">
                 <h3 className="text-2xl font-black text-content-primary mb-6">
                     {editingId ? t('editor.editExercise') : t('editor.newExercise')}

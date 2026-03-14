@@ -31,7 +31,7 @@
     --color-danger-subtle: color-mix(in srgb, var(--color-danger) 15%, white);
     --color-danger-text: color-mix(in srgb, var(--color-danger) 70%, black);
 
-    /* ─── Workout Ring ──────────────────────────────────────────── */
+    /* ─── Routine Ring ──────────────────────────────────────────── */
     --color-ring-track: #1e293b;
     --color-ring-progress: var(--color-brand);
 
@@ -49,18 +49,18 @@
     --color-surface-app: #f8fafc;
     --color-surface-card: #ffffff;
     --color-surface-subtle: #f1f5f9;
-    --color-surface-workout: #0f172a;
-    --color-surface-workout-muted: rgba(30, 41, 59, 0.5);
+    --color-surface-routine: #0f172a;
+    --color-surface-routine-muted: rgba(30, 41, 59, 0.5);
 
     --color-stroke-default: #e2e8f0;
     --color-stroke-subtle: #f1f5f9;
     --color-stroke-add: #cbd5e1;
-    --color-stroke-workout: #334155;
+    --color-stroke-routine: #334155;
 
     --color-content-primary: #0f172a;
     --color-content-secondary: #475569;
     --color-content-muted: #94a3b8;
-    --color-content-workout: #94a3b8;
+    --color-content-routine: #94a3b8;
 }
 
 /* Manual theme override — takes priority over system setting */

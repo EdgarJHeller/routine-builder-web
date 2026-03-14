@@ -5,7 +5,7 @@ import {playBeep} from '../utils/audioUtils.js';
 
 export const PREP_DURATION = 5;
 
-const useWorkoutTimer = (exercises) => {
+const useRoutineTimer = (exercises) => {
     const {t, i18n} = useTranslation();
     const lang = i18n.language?.slice(0, 2);
 
@@ -16,7 +16,7 @@ const useWorkoutTimer = (exercises) => {
     const [prepTimeLeft, setPrepTimeLeft] = useState(PREP_DURATION);
     const [isSideSwitchAlert, setIsSideSwitchAlert] = useState(false);
     const [isSideSwitchPaused, setIsSideSwitchPaused] = useState(false);
-    const [isWorkoutComplete, setIsWorkoutComplete] = useState(false);
+    const [isRoutineComplete, setIsRoutineComplete] = useState(false);
     const sideSwitchTimeout = useRef(null);
 
     const currentExercise = exercises[currentExerciseIndex];
@@ -55,7 +55,7 @@ const useWorkoutTimer = (exercises) => {
 
     // Main timer
     useEffect(() => {
-        if (isPaused || isWorkoutComplete || !currentExercise || isPrepping || isSideSwitchPaused) return;
+        if (isPaused || isRoutineComplete || !currentExercise || isPrepping || isSideSwitchPaused) return;
 
         const intervalId = setInterval(() => {
             setTimeLeft((prevTime) => {
@@ -79,7 +79,7 @@ const useWorkoutTimer = (exercises) => {
                     setPrepTimeLeft(PREP_DURATION);
                     return exercises[nextIdx].durationSeconds;
                 } else {
-                    setIsWorkoutComplete(true);
+                    setIsRoutineComplete(true);
                     setIsPaused(true);
                     return 0;
                 }
@@ -87,7 +87,7 @@ const useWorkoutTimer = (exercises) => {
         }, 1000);
 
         return () => clearInterval(intervalId);
-    }, [isPaused, isWorkoutComplete, currentExercise, currentExerciseIndex, exercises, isPrepping, isSideSwitchPaused]);
+    }, [isPaused, isRoutineComplete, currentExercise, currentExerciseIndex, exercises, isPrepping, isSideSwitchPaused]);
 
     // Side switch pause
     useEffect(() => {
@@ -106,11 +106,11 @@ const useWorkoutTimer = (exercises) => {
 
     // Countdown speak
     useEffect(() => {
-        if (isPaused || isWorkoutComplete || !currentExercise || isPrepping || isSideSwitchPaused) return;
+        if (isPaused || isRoutineComplete || !currentExercise || isPrepping || isSideSwitchPaused) return;
         if (timeLeft <= 3 && timeLeft > 0) {
             speak(timeLeft.toString(), lang);
         }
-    }, [timeLeft, isPaused, isWorkoutComplete, currentExercise, isPrepping, isSideSwitchPaused, lang, speak]);
+    }, [timeLeft, isPaused, isRoutineComplete, currentExercise, isPrepping, isSideSwitchPaused, lang, speak]);
 
     const start = useCallback(() => {
         setIsPaused(false);
@@ -122,7 +122,7 @@ const useWorkoutTimer = (exercises) => {
 
     const reset = useCallback(() => {
         setIsPaused(true);
-        setIsWorkoutComplete(false);
+        setIsRoutineComplete(false);
         setCurrentExerciseIndex(0);
         setTimeLeft(exercises[0]?.durationSeconds || 0);
         setIsSideSwitchAlert(false);
@@ -141,7 +141,7 @@ const useWorkoutTimer = (exercises) => {
             setIsPrepping(true);
             setPrepTimeLeft(PREP_DURATION);
         } else {
-            setIsWorkoutComplete(true);
+            setIsRoutineComplete(true);
             setIsPaused(true);
             setTimeLeft(0);
         }
@@ -154,7 +154,7 @@ const useWorkoutTimer = (exercises) => {
             setTimeLeft(exercises[prevIdx].durationSeconds);
             setIsSideSwitchAlert(false);
             setIsSideSwitchPaused(false);
-            setIsWorkoutComplete(false);
+            setIsRoutineComplete(false);
             setIsPrepping(true);
             setPrepTimeLeft(PREP_DURATION);
         }
@@ -170,7 +170,7 @@ const useWorkoutTimer = (exercises) => {
         isPrepping,
         isSideSwitchAlert,
         isSideSwitchPaused,
-        isWorkoutComplete,
+        isRoutineComplete,
         start,
         pause,
         reset,
@@ -180,4 +180,4 @@ const useWorkoutTimer = (exercises) => {
     };
 };
 
-export default useWorkoutTimer;
+export default useRoutineTimer;

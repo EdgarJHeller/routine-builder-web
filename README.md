@@ -6,7 +6,7 @@
 [![Lighthouse](https://img.shields.io/badge/Lighthouse-100%20%7C%20100%20%7C%20100%20%7C%20100-brightgreen?logo=lighthouse)](https://routine.hejh.me)
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
 
-A minimalist workout routine builder and timer. Designed for focus, this app avoids the clutter of exercise videos and ads, providing a clean experience for athletes who know their form and just want to get the work done.
+A minimalist routine builder and timer. Designed for focus, this app avoids the clutter of exercise videos and ads, providing a clean experience for athletes who know their form and just want to get the work done.
 
 ## ✨ Features
 
@@ -17,7 +17,7 @@ A minimalist workout routine builder and timer. Designed for focus, this app avo
 * **Side-Switch Alerts:** Timer pauses mid-set with an audio cue for exercises requiring a side switch.
 * **Routine Sharing:** Share routines via a link — recipients get a preview before importing.
 * **Keyboard Navigation:** Full support for building routines using only your keyboard.
-* **Local-First Privacy:** All workout data is stored in your browser's `localStorage` — no accounts or servers required.
+* **Local-First Privacy:** All routine data is stored in your browser's `localStorage` — no accounts or servers required.
 * **Dark Mode:** Three-way toggle — follows system preference by default, with manual light/dark override persisted via `localStorage`.
 * **Bilingual:** Full English and German support.
 

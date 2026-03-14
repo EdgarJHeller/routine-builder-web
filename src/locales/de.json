@@ -7,13 +7,14 @@
     "getReady": "Mach dich bereit!"
   },
   "editor": {
-    "title": "Workout Editor",
+    "title": "Routine Editor",
     "subtitle": "Gestalte deine Routine",
     "routineNamePlaceholder": "Routinen-Name...",
     "addExercise": "Übung hinzufügen",
     "newExercise": "Neue Übung",
     "editExercise": "Übung bearbeiten",
     "sideSwitchLabel": "Seitenwechsel nach der Hälfte?",
+    "sideSwitchBadge": "Seitenwechsel",
     "deleteWarning": "Bist du sicher, dass du diese Übung löschen willst:",
     "deleteButton": "Löschen",
     "cancel": "Abbrechen",
@@ -30,7 +31,7 @@
   },
   "library": {
     "title": "Meine Routinen",
-    "subtitle": "Wähle oder erstelle ein Workout",
+    "subtitle": "Wähle oder erstelle ein Routine",
     "addRoutine": "Routine hinzufügen",
     "unnamedRoutine": "Unbenannte Routine",
     "exercise": "Übung",
@@ -46,10 +47,10 @@
     "dismiss": "Ablehnen",
     "newRoutine": "Neue Routine"
   },
-  "workout": {
+  "routine": {
     "screenTitle": "Übung läuft",
     "nextUp": "Nächste Übung",
-    "exitWorkout": "Training beenden",
+    "exitRoutine": "Training beenden",
     "resetTimer": "Timer zurücksetzen",
     "prevExercise": "Vorherige Übung",
     "nextExercise": "Nächste Übung",

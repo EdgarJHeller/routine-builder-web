@@ -1,7 +1,7 @@
+import {useTranslation} from 'react-i18next';
 import {Plus} from "lucide-react";
-import React, {useState} from "react";
+import {useState} from "react";
 import {useFocusTrap} from "../../hooks/useFocusTrap.js";
-import {translations} from "../../locales/index.js";
 import DeleteConfirmModal from "../common/DeleteConfirmModal.jsx";
 import RoutineItem from "./RoutineItem.jsx";
 import {Footer} from "../common/Footer.jsx";
@@ -13,14 +13,12 @@ const RoutineLibrary = ({
                             onSelectRoutine,
                             onCreateRoutine,
                             onDeleteRoutine,
-                            lang,
-                            toggleLanguage,
                             onOpenLegal,
                             theme,
                             toggleTheme,
                             showToast,
                         }) => {
-    const t = translations[lang];
+    const {t} = useTranslation();
     const [routineToDelete, setRoutineToDelete] = useState(null);
     const deleteModalRef = useFocusTrap(!!routineToDelete);
 
@@ -28,15 +26,15 @@ const RoutineLibrary = ({
         <div className="bg-surface-card border-b border-stroke-default px-6 py-8 mb-6 flex justify-between items-start">
             <div>
                 <h2 className="text-3xl font-extrabold text-content-primary">
-                    {t.ui.libraryTitle || (lang === "en" ? "My Routines" : "Meine Routinen")}
+                    {t('library.title')}
                 </h2>
                 <p className="text-content-secondary mt-1">
-                    {t.ui.librarySubtitle || (lang === "en" ? "Choose or create a routine" : "Wähle oder erstelle eine Routine")}
+                    {t('library.subtitle')}
                 </p>
             </div>
             <div className="flex items-center gap-2">
                 <ThemeToggle theme={theme} onToggle={toggleTheme}/>
-                <LanguageToggle lang={lang} onToggle={toggleLanguage}/>
+                <LanguageToggle/>
             </div>
         </div>
     );
@@ -57,7 +55,6 @@ const RoutineLibrary = ({
                     <RoutineItem
                         key={routine.id}
                         routine={routine}
-                        t={t}
                         onSelect={() => onSelectRoutine(routine.id)}
                         onDelete={setRoutineToDelete}
                         showToast={showToast}
@@ -66,7 +63,7 @@ const RoutineLibrary = ({
 
                 <li>
                     <button onClick={onCreateRoutine} className="btn-add mt-4">
-                        <Plus size={20}/> {t.ui.addRoutine || (lang === "en" ? "Add Routine" : "Routine hinzufügen")}
+                        <Plus size={20}/> {t('library.addRoutine')}
                     </button>
                 </li>
             </ul>
@@ -74,12 +71,11 @@ const RoutineLibrary = ({
             <DeleteConfirmModal
                 modalRef={deleteModalRef}
                 exerciseName={routineToDelete?.name}
-                t={t}
                 onCancel={() => setRoutineToDelete(null)}
                 onConfirm={confirmDelete}
             />
 
-            <Footer onOpenLegal={onOpenLegal} t={t}/>
+            <Footer onOpenLegal={onOpenLegal}/>
         </main>
     );
 };

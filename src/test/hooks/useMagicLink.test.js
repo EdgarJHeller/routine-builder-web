@@ -1,4 +1,4 @@
-import {beforeEach, describe, expect, it} from 'vitest';
+import {beforeEach, describe, expect, it, vi} from 'vitest';
 import {act, renderHook} from '@testing-library/react';
 import {useMagicLink} from '../../hooks/useMagicLink.js';
 
@@ -36,10 +36,14 @@ describe('useMagicLink', () => {
     });
 
     it('returns null for malformed routine param', () => {
+        const consoleSpy = vi.spyOn(console, 'error').mockImplementation(() => {
+        });
         window.history.replaceState({}, '', '/?routine=notvalidbase64!!!');
 
         const {result} = renderHook(() => useMagicLink());
         expect(result.current.pendingRoutine).toBeNull();
+
+        consoleSpy.mockRestore();
     });
 
     it('allows clearing pendingRoutine via setPendingRoutine', () => {

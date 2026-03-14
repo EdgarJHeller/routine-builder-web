@@ -1,11 +1,11 @@
+import {useTranslation} from 'react-i18next';
 import {Pause, Play, RotateCcw, SkipBack, SkipForward, X, Zap,} from "lucide-react";
 import {useKeydown} from "../../hooks/useKeydown.js";
 import {useWakeLock} from "../../hooks/useWakeLock.js";
 import useWorkoutTimer, {PREP_DURATION} from "../../hooks/useWorkoutTimer.js";
-import {translations} from "../../locales/index.js";
 
-const RoutineScreen = ({exercises, lang, onExit}) => {
-    const t = translations[lang];
+const RoutineScreen = ({exercises, onExit}) => {
+    const {t, i18n} = useTranslation();
 
     const iconBtnBase =
         "p-2 text-content-workout hover:text-white transition-colors focus:outline-none focus:ring-2 focus:ring-brand rounded-lg";
@@ -13,6 +13,7 @@ const RoutineScreen = ({exercises, lang, onExit}) => {
         "flex justify-center p-4 text-content-workout hover:text-white transition-colors focus:outline-none focus:ring-2 focus:ring-brand rounded-full";
     const mainPlayBtn =
         "flex justify-center items-center w-20 h-20 bg-surface-card text-content-primary rounded-full shadow-xl active:scale-90 transition-transform mx-auto focus:outline-none focus:ring-4 focus:ring-brand";
+
     const {
         currentExercise,
         nextExercise,
@@ -27,7 +28,7 @@ const RoutineScreen = ({exercises, lang, onExit}) => {
         prev,
         prepTimeLeft,
         isPrepping,
-    } = useWorkoutTimer(exercises, lang);
+    } = useWorkoutTimer(exercises);
 
     useWakeLock(!isWorkoutComplete);
 
@@ -62,14 +63,14 @@ const RoutineScreen = ({exercises, lang, onExit}) => {
                     <Zap size={48} className="text-success" fill="currentColor"/>
                 </div>
                 <h2 className="text-4xl font-black text-white mb-2">
-                    {t.timer.complete}
+                    {t('timer.complete')}
                 </h2>
                 <button
                     autoFocus
                     onClick={onExit}
                     className="w-full py-4 bg-surface-card text-content-primary font-bold rounded-card shadow-card-lg active:scale-95 focus:ring-4 focus:ring-success outline-none"
                 >
-                    {t.ui.backToEditor || "Back to Editor"}
+                    {t('workout.backToEditor')}
                 </button>
             </div>
         );
@@ -78,22 +79,20 @@ const RoutineScreen = ({exercises, lang, onExit}) => {
     return (
         <div className="min-h-screen bg-surface-workout text-white flex flex-col p-6 relative overflow-hidden">
             <div className="flex justify-between items-center mb-8">
-                <button onClick={onExit} aria-label="Exit Workout" className={iconBtnBase}>
+                <button onClick={onExit} aria-label={t('workout.exitWorkout')} className={iconBtnBase}>
                     <X size={24}/>
                 </button>
                 <span className="text-xs font-bold tracking-widest text-content-workout uppercase">
-            {t.ui.workoutScreenTitle}
-        </span>
-                <button onClick={reset} aria-label="Reset Timer" className={iconBtnBase}>
+                    {t('workout.screenTitle')}
+                </span>
+                <button onClick={reset} aria-label={t('workout.resetTimer')} className={iconBtnBase}>
                     <RotateCcw size={20}/>
                 </button>
             </div>
 
             <div className="flex-1 flex flex-col items-center justify-center">
                 <h1 className="text-2xl font-bold text-content-workout mb-2 uppercase tracking-tight">
-                    {isPrepping
-                        ? t.timer.getReady || "Get Ready"
-                        : currentExercise?.name}
+                    {isPrepping ? t('timer.getReady') : currentExercise?.name}
                 </h1>
 
                 <div className="relative flex items-center justify-center w-64 h-64"
@@ -120,22 +119,22 @@ const RoutineScreen = ({exercises, lang, onExit}) => {
                     {isSideSwitchAlert && (
                         <div className="bg-warning text-white px-4 py-1 rounded-pill font-bold text-sm
                                 animate-pulse flex items-center gap-2">
-                            <RotateCcw size={16}/> {t.timer.switch}
+                            <RotateCcw size={16}/> {t('timer.switch')}
                         </div>
                     )}
                 </div>
             </div>
 
             <div className="grid grid-cols-3 gap-4 items-center mb-12">
-                <button onClick={prev} aria-label="Previous Exercise" className={controlBtnBase}>
+                <button onClick={prev} aria-label={t('workout.prevExercise')} className={controlBtnBase}>
                     <SkipBack size={32}/>
                 </button>
                 <button onClick={isPaused ? start : pause}
-                        aria-label={isPaused ? "Start Timer" : "Pause Timer"}
+                        aria-label={isPaused ? t('workout.startTimer') : t('workout.pauseTimer')}
                         className={mainPlayBtn}>
                     {isPaused ? <Play size={36} fill="currentColor"/> : <Pause size={36} fill="currentColor"/>}
                 </button>
-                <button onClick={next} aria-label="Next Exercise" className={controlBtnBase}>
+                <button onClick={next} aria-label={t('workout.nextExercise')} className={controlBtnBase}>
                     <SkipForward size={32}/>
                 </button>
             </div>
@@ -145,13 +144,13 @@ const RoutineScreen = ({exercises, lang, onExit}) => {
                         flex items-center justify-between">
                     <div>
                         <p className="text-xs font-bold text-content-workout uppercase">
-                            {t.ui.workoutScreenNextUp}
+                            {t('workout.nextUp')}
                         </p>
                         <p className="font-bold text-white">{nextExercise.name}</p>
                     </div>
                     <span className="text-content-workout font-bold">
-                {nextExercise.durationSeconds}s
-            </span>
+                        {nextExercise.durationSeconds}s
+                    </span>
                 </div>
             )}
         </div>

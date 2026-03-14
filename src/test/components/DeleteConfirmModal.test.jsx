@@ -3,20 +3,11 @@ import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import DeleteConfirmModal from '../../components/common/DeleteConfirmModal.jsx';
 
-const t = {
-    ui: {
-        deleteWarning: 'Are you sure you want to delete:',
-        cancel: 'Cancel',
-        deleteButton: 'Delete',
-    }
-};
-
 describe('DeleteConfirmModal', () => {
     it('renders nothing when exerciseName is null', () => {
         const { container } = render(
             <DeleteConfirmModal
                 exerciseName={null}
-                t={t}
                 onCancel={vi.fn()}
                 onConfirm={vi.fn()}
             />
@@ -28,7 +19,6 @@ describe('DeleteConfirmModal', () => {
         render(
             <DeleteConfirmModal
                 exerciseName="Push-ups"
-                t={t}
                 onCancel={vi.fn()}
                 onConfirm={vi.fn()}
             />
@@ -41,12 +31,11 @@ describe('DeleteConfirmModal', () => {
         render(
             <DeleteConfirmModal
                 exerciseName="Push-ups"
-                t={t}
                 onCancel={onCancel}
                 onConfirm={vi.fn()}
             />
         );
-        await userEvent.click(screen.getByText('Cancel'));
+        await userEvent.click(screen.getByText('editor.cancel'));
         expect(onCancel).toHaveBeenCalledOnce();
     });
 
@@ -55,12 +44,11 @@ describe('DeleteConfirmModal', () => {
         render(
             <DeleteConfirmModal
                 exerciseName="Push-ups"
-                t={t}
                 onCancel={vi.fn()}
                 onConfirm={onConfirm}
             />
         );
-        await userEvent.click(screen.getByText('Delete'));
+        await userEvent.click(screen.getByText('editor.deleteButton'));
         expect(onConfirm).toHaveBeenCalledOnce();
     });
 
@@ -69,12 +57,11 @@ describe('DeleteConfirmModal', () => {
         render(
             <DeleteConfirmModal
                 exerciseName="Push-ups"
-                t={t}
                 onCancel={vi.fn()}
                 onConfirm={onConfirm}
             />
         );
-        await userEvent.click(screen.getByText('Cancel'));
+        await userEvent.click(screen.getByText('editor.cancel'));
         expect(onConfirm).not.toHaveBeenCalled();
     });
 });

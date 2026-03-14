@@ -1,11 +1,11 @@
-import {useEffect, useState} from "react";
+import {useTranslation} from 'react-i18next';
+import {useState} from "react";
 import LegalModal from "./components/common/LegalModal.jsx";
 import RoutineEditor from "./components/routines/RoutineEditor.jsx";
 import RoutineLibrary from "./components/routines/RoutineLibrary.jsx";
 import RoutineScreen from "./components/routines/RoutineScreen.jsx";
 import {IMPRESSUM_CONTENT, PRIVACY_CONTENT} from "./constants/legalContent";
 import {useRoutines} from "./hooks/useRoutines";
-import {translations} from "./locales";
 import {useTheme} from "./hooks/useTheme.js";
 import {useMagicLink} from "./hooks/useMagicLink.js";
 import {useToast} from "./hooks/useToast.js";
@@ -13,19 +13,12 @@ import {Toast} from "./components/common/Toast.jsx";
 import {ImportRoutineModal} from "./components/routines/ImportRoutineModal.jsx";
 
 function App() {
+    const {t} = useTranslation();
     const [isTraining, setIsTraining] = useState(false);
     const [activeLegalPage, setActiveLegalPage] = useState(null);
-    const [lang, setLang] = useState(() => localStorage.getItem("workout_lang") || "en");
-
-    useEffect(() => {
-        localStorage.setItem("workout_lang", lang);
-    }, [lang]);
-
-    const toggleLanguage = () => setLang((prev) => (prev === "en" ? "de" : "en"));
 
     const {theme, toggleTheme} = useTheme();
-
-    const {pendingRoutine, setPendingRoutine} = useMagicLink(lang);
+    const {pendingRoutine, setPendingRoutine} = useMagicLink();
     const {toast, showToast} = useToast();
 
     const {
@@ -42,18 +35,17 @@ function App() {
         deleteExercise,
         updateExercise,
         moveExercise
-    } = useRoutines(lang);
+    } = useRoutines();
 
     const handleImportConfirm = () => {
-        const t = translations[lang];
         const importedRoutine = {
             ...pendingRoutine,
             id: crypto.randomUUID(),
-            name: pendingRoutine.name + t.ui.importedSuffix,
+            name: pendingRoutine.name + t('library.importedSuffix'),
         };
         setRoutines(prev => [...prev, importedRoutine]);
         setPendingRoutine(null);
-        showToast(t.ui.importSuccess.replace("{name}", pendingRoutine.name));
+        showToast(t('library.importSuccess', {name: pendingRoutine.name}));
     };
 
     return (
@@ -63,7 +55,7 @@ function App() {
                 {activeLegalPage && (
                     <LegalModal
                         title={activeLegalPage === "impressum" ? "Impressum" : "Datenschutz"}
-                        backText={translations[lang].ui.back}
+                        backText={t('editor.back')}
                         onClose={() => setActiveLegalPage(null)}
                     >
                         {activeLegalPage === "impressum" ? IMPRESSUM_CONTENT : PRIVACY_CONTENT}
@@ -77,8 +69,6 @@ function App() {
                             onSelectRoutine={setActiveRoutineId}
                             onCreateRoutine={createNewRoutine}
                             onDeleteRoutine={deleteRoutine}
-                            lang={lang}
-                            toggleLanguage={toggleLanguage}
                             onOpenLegal={setActiveLegalPage}
                             theme={theme}
                             toggleTheme={toggleTheme}
@@ -87,7 +77,6 @@ function App() {
                     ) : isTraining ? (
                         <RoutineScreen
                             exercises={currentExercises}
-                            lang={lang}
                             onExit={() => setIsTraining(false)}
                         />
                     ) : (
@@ -101,8 +90,6 @@ function App() {
                             onUpdateRoutineName={(newName) => updateRoutineName(activeRoutineId, newName)}
                             onStart={() => setIsTraining(true)}
                             onBack={() => setActiveRoutineId(null)}
-                            lang={lang}
-                            toggleLanguage={toggleLanguage}
                             onOpenLegal={setActiveLegalPage}
                             theme={theme}
                             toggleTheme={toggleTheme}
@@ -111,7 +98,6 @@ function App() {
                 </div>
                 <ImportRoutineModal
                     routine={pendingRoutine}
-                    t={translations[lang]}
                     onConfirm={handleImportConfirm}
                     onDismiss={() => setPendingRoutine(null)}
                 />

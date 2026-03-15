@@ -62,40 +62,44 @@ function App() {
                     </LegalModal>
                 )}
 
-                <main className={`min-h-screen pb-32 relative ${isTraining ? '' : 'bg-surface-app'}`}>
-                    {!activeRoutineId ? (
-                        <RoutineLibrary
-                            routines={routines}
-                            onSelectRoutine={setActiveRoutineId}
-                            onCreateRoutine={createNewRoutine}
-                            onDeleteRoutine={deleteRoutine}
-                            onOpenLegal={setActiveLegalPage}
-                            theme={theme}
-                            toggleTheme={toggleTheme}
-                            showToast={showToast}
-                        />
-                    ) : isTraining ? (
-                        <RoutineScreen
-                            exercises={currentExercises}
-                            onExit={() => setIsTraining(false)}
-                        />
-                    ) : (
-                        <RoutineEditor
-                            exercises={currentExercises}
-                            routineName={activeRoutine?.name}
-                            addExercise={addExercise}
-                            deleteExercise={deleteExercise}
-                            moveExercise={moveExercise}
-                            updateExercise={updateExercise}
-                            onUpdateRoutineName={(newName) => updateRoutineName(activeRoutineId, newName)}
-                            onStart={() => setIsTraining(true)}
-                            onBack={() => setActiveRoutineId(null)}
-                            onOpenLegal={setActiveLegalPage}
-                            theme={theme}
-                            toggleTheme={toggleTheme}
-                        />
-                    )}
-                </main>
+                {isTraining ? (
+                    <RoutineScreen
+                        exercises={currentExercises}
+                        onExit={() => setIsTraining(false)}
+                    />
+                ) : (
+                    <main className="min-h-screen bg-surface-app pb-32 relative">
+                        {!activeRoutineId ? (
+                            <RoutineLibrary
+                                routines={routines}
+                                onSelectRoutine={setActiveRoutineId}
+                                onCreateRoutine={createNewRoutine}
+                                onDeleteRoutine={deleteRoutine}
+                                onOpenLegal={setActiveLegalPage}
+                                theme={theme}
+                                toggleTheme={toggleTheme}
+                                showToast={showToast}
+                            />
+
+                        ) : (
+                            <RoutineEditor
+                                exercises={currentExercises}
+                                routineName={activeRoutine?.name}
+                                addExercise={addExercise}
+                                deleteExercise={deleteExercise}
+                                moveExercise={moveExercise}
+                                updateExercise={updateExercise}
+                                onUpdateRoutineName={(newName) => updateRoutineName(activeRoutineId, newName)}
+                                onStart={() => setIsTraining(true)}
+                                onBack={() => setActiveRoutineId(null)}
+                                onOpenLegal={setActiveLegalPage}
+                                theme={theme}
+                                toggleTheme={toggleTheme}
+                            />
+
+                        )}
+                    </main>
+                )}
 
                 <ImportRoutineModal
                     routine={pendingRoutine}

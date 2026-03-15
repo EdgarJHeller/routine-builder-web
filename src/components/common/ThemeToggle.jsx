@@ -12,9 +12,10 @@ export function ThemeToggle({theme, onToggle}) {
     return (
         <button
             onClick={onToggle}
-            className="bg-surface-subtle p-2 rounded-icon border border-stroke-default
-                       shadow-card text-content-muted hover:text-content-primary
-                       focus:ring-2 focus:ring-brand transition-colors"
+            className="bg-surface-subtle p-2 flex items-center justify-center
+               rounded-icon border border-stroke-default shadow-card
+               text-content-muted hover:text-content-primary
+               focus:ring-2 focus:ring-brand transition-colors"
             aria-label={label}
         >
             {icon}

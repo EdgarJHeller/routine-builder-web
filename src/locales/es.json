@@ -1,0 +1,65 @@
+{
+  "timer": {
+    "next": "Siguiente ejercicio:",
+    "switch": "¡Cambia de lado!",
+    "switchNow": "¡Cambia de lado ahora!",
+    "complete": "¡Rutina completada!",
+    "getReady": "¡Prepárate!"
+  },
+  "editor": {
+    "title": "Editor de rutinas",
+    "subtitle": "Diseña tu rutina",
+    "routineNamePlaceholder": "Nombre de la rutina...",
+    "addExercise": "Añadir ejercicio",
+    "newExercise": "Nuevo ejercicio",
+    "editExercise": "Editar ejercicio",
+    "sideSwitchLabel": "¿Cambio de lado a mitad?",
+    "sideSwitchBadge": "Cambio de lado",
+    "deleteWarning": "¿Seguro que quieres eliminar:",
+    "deleteButton": "Eliminar",
+    "cancel": "Cancelar",
+    "save": "Guardar",
+    "add": "Añadir",
+    "startRoutine": "Iniciar rutina",
+    "back": "Volver",
+    "placeholder": {
+      "name": "Nombre del ejercicio",
+      "duration": "Segundos"
+    },
+    "moveUp": "Subir",
+    "moveDown": "Bajar"
+  },
+  "library": {
+    "title": "Mis rutinas",
+    "subtitle": "Elige o crea una rutina",
+    "addRoutine": "Añadir rutina",
+    "unnamedRoutine": "Rutina sin nombre",
+    "exercise": "Ejercicio",
+    "exercises": "Ejercicios",
+    "shareRoutine": "Compartir rutina",
+    "deleteRoutine": "Eliminar rutina",
+    "linkCopied": "¡Enlace copiado al portapapeles!",
+    "importedSuffix": " (Importada)",
+    "importSuccess": "\"{{name}}\" importada con éxito",
+    "importTitle": "Rutina compartida",
+    "importSubtitle": "Alguien ha compartido esta rutina contigo. ¿Añadirla a tu lista?",
+    "importConfirm": "Añadir a mis rutinas",
+    "dismiss": "Ignorar",
+    "newRoutine": "Nueva rutina"
+  },
+  "routine": {
+    "screenTitle": "Rutina en curso",
+    "nextUp": "A continuación",
+    "exitRoutine": "Salir de la rutina",
+    "resetTimer": "Reiniciar temporizador",
+    "prevExercise": "Ejercicio anterior",
+    "nextExercise": "Ejercicio siguiente",
+    "startTimer": "Iniciar temporizador",
+    "pauseTimer": "Pausar temporizador",
+    "backToEditor": "Volver al editor"
+  },
+  "footer": {
+    "imprint": "Aviso legal",
+    "privacy": "Privacidad"
+  }
+}

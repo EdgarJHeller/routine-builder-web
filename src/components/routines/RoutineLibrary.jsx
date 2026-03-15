@@ -4,9 +4,8 @@ import {useState} from "react";
 import {useFocusTrap} from "../../hooks/useFocusTrap.js";
 import DeleteConfirmModal from "../common/DeleteConfirmModal.jsx";
 import RoutineItem from "./RoutineItem.jsx";
+import {ScreenHeader} from "../common/ScreenHeader.jsx";
 import {Footer} from "../common/Footer.jsx";
-import {LanguageToggle} from "../common/LanguageToggle.jsx";
-import {ThemeToggle} from "../common/ThemeToggle.jsx";
 
 const RoutineLibrary = ({
                             routines,
@@ -22,23 +21,6 @@ const RoutineLibrary = ({
     const [routineToDelete, setRoutineToDelete] = useState(null);
     const deleteModalRef = useFocusTrap(!!routineToDelete);
 
-    const renderHeader = () => (
-        <div className="bg-surface-card border-b border-stroke-default px-6 py-8 mb-6 flex justify-between items-start">
-            <div>
-                <h2 className="text-3xl font-extrabold text-content-primary">
-                    {t('library.title')}
-                </h2>
-                <p className="text-content-secondary mt-1">
-                    {t('library.subtitle')}
-                </p>
-            </div>
-            <div className="flex items-center gap-2">
-                <ThemeToggle theme={theme} onToggle={toggleTheme}/>
-                <LanguageToggle/>
-            </div>
-        </div>
-    );
-
     const confirmDelete = () => {
         if (routineToDelete) {
             onDeleteRoutine(routineToDelete.id);
@@ -47,8 +29,13 @@ const RoutineLibrary = ({
     };
 
     return (
-        <main className="min-h-screen bg-surface-app pb-32 relative">
-            {renderHeader()}
+        <>
+            <ScreenHeader
+                title={t('library.title')}
+                subtitle={t('library.subtitle')}
+                theme={theme}
+                toggleTheme={toggleTheme}
+            />
 
             <ul className="max-w-md mx-auto px-4 space-y-3">
                 {routines.map((routine) => (
@@ -76,7 +63,7 @@ const RoutineLibrary = ({
             />
 
             <Footer onOpenLegal={onOpenLegal}/>
-        </main>
+        </>
     );
 };
 

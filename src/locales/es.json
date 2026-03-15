@@ -61,5 +61,23 @@
   "footer": {
     "imprint": "Aviso legal",
     "privacy": "Privacidad"
+  },
+  "demo": {
+    "routine1": {
+      "name": "Calentamiento de manos para músicos (Demo)",
+      "e1": "Estiramientos de dedos",
+      "e2": "Círculos de muñeca",
+      "e3": "Oposición de pulgar",
+      "e4": "Estiramiento del flexor del antebrazo",
+      "e5": "Golpeteo de dedos"
+    },
+    "routine2": {
+      "name": "Reset de escritorio (Demo)",
+      "e1": "Estiramiento lateral del cuello",
+      "e2": "Rotación de hombros",
+      "e3": "Apertura de pecho",
+      "e4": "Torsión espinal sentado",
+      "e5": "Estiramiento del flexor de cadera"
+    }
   }
 }

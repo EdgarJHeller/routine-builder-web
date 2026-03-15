@@ -1,24 +1,23 @@
-import { describe, it, expect } from 'vitest';
-import { render, screen } from '@testing-library/react';
-import userEvent from '@testing-library/user-event';
-import { LanguageToggle } from '../../components/common/LanguageToggle.jsx';
+import {describe, expect, it} from 'vitest';
+import {render, screen} from '@testing-library/react';
+import {LanguageToggle} from '../../components/common/LanguageToggle.jsx';
 
 describe('LanguageToggle', () => {
-    it('renders EN and DE buttons', () => {
-        render(<LanguageToggle />);
+    it('renders all language options', () => {
+        render(<LanguageToggle/>);
         expect(screen.getByText('EN')).toBeInTheDocument();
         expect(screen.getByText('DE')).toBeInTheDocument();
+        expect(screen.getByText('FR')).toBeInTheDocument();
+        expect(screen.getByText('ES')).toBeInTheDocument();
     });
 
-    it('highlights EN when lang is en', () => {
-        render(<LanguageToggle />);
-        expect(screen.getByText('EN')).toHaveClass('text-brand');
-        expect(screen.getByText('DE')).toHaveClass('text-content-secondary');
+    it('renders a select element', () => {
+        render(<LanguageToggle/>);
+        expect(screen.getByRole('combobox')).toBeInTheDocument();
     });
 
-    it('calls changeLanguage when clicked', async () => {
-        render(<LanguageToggle />);
-        await userEvent.click(screen.getByRole('button'));
-        // toggle is called — no error thrown is sufficient
+    it('has EN selected by default', () => {
+        render(<LanguageToggle/>);
+        expect(screen.getByRole('combobox')).toHaveValue('en');
     });
 });

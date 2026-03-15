@@ -1,5 +1,6 @@
 import {useEffect, useState} from "react";
 import {useTranslation} from 'react-i18next';
+import {getDemoRoutines} from "../data/demoRoutines.js";
 
 export const useRoutines = () => {
     const {t} = useTranslation();
@@ -16,7 +17,7 @@ export const useRoutines = () => {
                 exercises: JSON.parse(oldExercises)
             }];
         }
-        return [];
+        return getDemoRoutines();
     });
 
     const [activeRoutineId, setActiveRoutineId] = useState(null);

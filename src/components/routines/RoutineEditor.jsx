@@ -78,10 +78,17 @@ const RoutineEditor = ({
         }
     };
 
+    const handleBack = () => {
+        if (!routineName?.trim()) {
+            onUpdateRoutineName(t('library.unnamedRoutine'));
+        }
+        onBack();
+    };
+
     return (
         <>
             <ScreenHeader
-                onBack={onBack}
+                onBack={handleBack}
                 theme={theme}
                 toggleTheme={toggleTheme}
             >
@@ -89,6 +96,11 @@ const RoutineEditor = ({
                     type="text"
                     value={routineName || ""}
                     onChange={(e) => onUpdateRoutineName(e.target.value)}
+                    onBlur={(e) => {
+                        if (!e.target.value.trim()) {
+                            onUpdateRoutineName(t('library.unnamedRoutine'));
+                        }
+                    }}
                     placeholder={t('editor.routineNamePlaceholder')}
                     className="text-3xl font-extrabold text-content-primary bg-transparent outline-none w-full
                    border-b-2 border-transparent focus:border-brand transition-colors

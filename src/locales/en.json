@@ -61,5 +61,23 @@
   "footer": {
     "imprint": "Imprint",
     "privacy": "Privacy"
+  },
+  "demo": {
+    "routine1": {
+      "name": "Musician's Hand Warm-up (Demo)",
+      "e1": "Finger Stretches",
+      "e2": "Wrist Circles",
+      "e3": "Thumb Opposition",
+      "e4": "Forearm Flexor Stretch",
+      "e5": "Finger Taps"
+    },
+    "routine2": {
+      "name": "Desk Reset (Demo)",
+      "e1": "Neck Side Stretch",
+      "e2": "Shoulder Rolls",
+      "e3": "Chest Opener",
+      "e4": "Seated Spinal Twist",
+      "e5": "Hip Flexor Stretch"
+    }
   }
 }

@@ -61,5 +61,23 @@
   "footer": {
     "imprint": "Impressum",
     "privacy": "Datenschutz"
+  },
+  "demo": {
+    "routine1": {
+      "name": "Musiker-Handwarm-up (Demo)",
+      "e1": "Finger strecken",
+      "e2": "Handgelenkkreisen",
+      "e3": "Daumenopposition",
+      "e4": "Unterarm-Beugestretch",
+      "e5": "Finger-Tapping"
+    },
+    "routine2": {
+      "name": "Schreibtisch-Reset (Demo)",
+      "e1": "Seitliche Nackendehnung",
+      "e2": "Schulterkreisen",
+      "e3": "Brustöffner",
+      "e4": "Sitzende Wirbelsäulendrehung",
+      "e5": "Hüftbeuger-Stretch"
+    }
   }
 }

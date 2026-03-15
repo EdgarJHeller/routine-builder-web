@@ -5,6 +5,7 @@ export const useFocusTrap = (isOpen) => {
 
     useEffect(() => {
         if (!isOpen) return;
+        if (!modalRef.current) return;
 
         const modalElement = modalRef.current;
         const focusableElements = modalElement.querySelectorAll(

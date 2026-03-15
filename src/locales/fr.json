@@ -61,5 +61,23 @@
   "footer": {
     "imprint": "Mentions légales",
     "privacy": "Confidentialité"
+  },
+  "demo": {
+    "routine1": {
+      "name": "Échauffement des mains pour musiciens (Demo)",
+      "e1": "Étirements des doigts",
+      "e2": "Rotations des poignets",
+      "e3": "Opposition du pouce",
+      "e4": "Étirement des fléchisseurs de l'avant-bras",
+      "e5": "Tapotements des doigts"
+    },
+    "routine2": {
+      "name": "Pause bureau (Demo)",
+      "e1": "Étirement latéral du cou",
+      "e2": "Rotations des épaules",
+      "e3": "Ouverture de la poitrine",
+      "e4": "Torsion vertébrale assise",
+      "e5": "Étirement du fléchisseur de hanche"
+    }
   }
 }

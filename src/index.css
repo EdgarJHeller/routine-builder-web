@@ -36,9 +36,9 @@
     --color-ring-progress: var(--color-brand);
 
     /* ─── Border Radius ─────────────────────────────────────────── */
-    --radius-card: 1rem;
-    --radius-icon: 0.75rem;
-    --radius-badge: 0.375rem;
+    --radius-card: 2rem;
+    --radius-icon: 1rem;
+    --radius-badge: 0.7rem;
     --radius-pill: 9999px;
 
     /* ─── Shadows ───────────────────────────────────────────────── */

@@ -2,6 +2,7 @@ import {useCallback, useEffect, useRef, useState} from 'react';
 import {useTranslation} from 'react-i18next';
 import {getVoice} from '../utils/speechUtils.js';
 import {playBeep} from '../utils/audioUtils.js';
+import {getLanguageConfig} from '../config/languages.js';
 
 export const PREP_DURATION = 5;
 
@@ -27,10 +28,8 @@ const useRoutineTimer = (exercises) => {
         window.speechSynthesis.cancel();
 
         const utterance = new SpeechSynthesisUtterance(text);
-        utterance.lang = language === 'de' ? 'de-DE'
-            : language === 'fr' ? 'fr-FR'
-                : language === 'es' ? 'es-ES'
-                    : 'en-US';
+        const config = getLanguageConfig(language);
+        utterance.lang = config.bcp47;
 
         const assignVoiceAndSpeak = () => {
             const voice = getVoice(language);

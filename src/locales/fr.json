@@ -1,0 +1,65 @@
+{
+  "timer": {
+    "next": "Exercice suivant :",
+    "switch": "Changez de côté !",
+    "switchNow": "Changez de côté maintenant !",
+    "complete": "Routine terminée !",
+    "getReady": "Préparez-vous !"
+  },
+  "editor": {
+    "title": "Éditeur de routine",
+    "subtitle": "Créez votre routine",
+    "routineNamePlaceholder": "Nom de la routine...",
+    "addExercise": "Ajouter un exercice",
+    "newExercise": "Nouvel exercice",
+    "editExercise": "Modifier l'exercice",
+    "sideSwitchLabel": "Changement de côté à mi-parcours ?",
+    "sideSwitchBadge": "Changement de côté",
+    "deleteWarning": "Voulez-vous vraiment supprimer :",
+    "deleteButton": "Supprimer",
+    "cancel": "Annuler",
+    "save": "Enregistrer",
+    "add": "Ajouter",
+    "startRoutine": "Démarrer la routine",
+    "back": "Retour",
+    "placeholder": {
+      "name": "Nom de l'exercice",
+      "duration": "Secondes"
+    },
+    "moveUp": "Monter",
+    "moveDown": "Descendre"
+  },
+  "library": {
+    "title": "Mes routines",
+    "subtitle": "Choisissez ou créez une routine",
+    "addRoutine": "Ajouter une routine",
+    "unnamedRoutine": "Routine sans nom",
+    "exercise": "Exercice",
+    "exercises": "Exercices",
+    "shareRoutine": "Partager la routine",
+    "deleteRoutine": "Supprimer la routine",
+    "linkCopied": "Lien copié dans le presse-papiers !",
+    "importedSuffix": " (Importée)",
+    "importSuccess": "\"{{name}}\" importée avec succès",
+    "importTitle": "Routine partagée",
+    "importSubtitle": "Quelqu'un a partagé cette routine avec vous. L'ajouter à votre liste ?",
+    "importConfirm": "Ajouter à mes routines",
+    "dismiss": "Ignorer",
+    "newRoutine": "Nouvelle routine"
+  },
+  "routine": {
+    "screenTitle": "Routine en cours",
+    "nextUp": "Exercice suivant",
+    "exitRoutine": "Quitter la routine",
+    "resetTimer": "Réinitialiser le minuteur",
+    "prevExercise": "Exercice précédent",
+    "nextExercise": "Exercice suivant",
+    "startTimer": "Démarrer le minuteur",
+    "pauseTimer": "Mettre en pause",
+    "backToEditor": "Retour à l'éditeur"
+  },
+  "footer": {
+    "imprint": "Mentions légales",
+    "privacy": "Confidentialité"
+  }
+}

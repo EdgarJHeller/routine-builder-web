@@ -1,27 +1,31 @@
 import {useTranslation} from 'react-i18next';
 
+const LANGUAGES = [
+    {code: 'en', label: 'EN'},
+    {code: 'de', label: 'DE'},
+    {code: 'fr', label: 'FR'},
+    {code: 'es', label: 'ES'},
+];
+
 export function LanguageToggle() {
     const {i18n} = useTranslation();
     const lang = i18n.language?.slice(0, 2);
 
-    const toggle = () => {
-        i18n.changeLanguage(lang === 'en' ? 'de' : 'en');
-    };
-
     return (
-        <button
-            onClick={toggle}
-            className="bg-surface-subtle p-1 rounded-icon flex items-center
-                       border border-stroke-default shadow-card focus:ring-2 focus:ring-brand"
+        <select
+            value={lang}
+            onChange={(e) => i18n.changeLanguage(e.target.value)}
+            className="bg-surface-subtle border border-stroke-default shadow-card
+               rounded-icon text-[10px] font-bold text-content-muted hover:text-content-primary
+               p-2 focus:ring-2 focus:ring-brand outline-none
+               cursor-pointer"
+            aria-label="Select language"
         >
-            <div className={`px-2 py-1 rounded-lg text-[10px] font-bold
-                ${lang === 'en' ? 'bg-surface-card text-brand shadow-card' : 'text-content-secondary'}`}>
-                EN
-            </div>
-            <div className={`px-2 py-1 rounded-lg text-[10px] font-bold
-                ${lang === 'de' ? 'bg-surface-card text-brand shadow-card' : 'text-content-secondary'}`}>
-                DE
-            </div>
-        </button>
+            {LANGUAGES.map(({code, label}) => (
+                <option key={code} value={code}>
+                    {label}
+                </option>
+            ))}
+        </select>
     );
 }

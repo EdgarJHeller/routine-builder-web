@@ -25,13 +25,29 @@ const useRoutineTimer = (exercises) => {
     const speak = useCallback((text, language) => {
         if (!window.speechSynthesis) return;
         window.speechSynthesis.cancel();
-        const utterance = new SpeechSynthesisUtterance(text);
-        const langCode = language === 'de' ? 'de-DE' : 'en-US';
-        utterance.lang = langCode;
-        utterance.voice = getVoice(langCode.split('-')[0]);
-        window.speechSynthesis.speak(utterance);
-    }, []);
 
+        const utterance = new SpeechSynthesisUtterance(text);
+        utterance.lang = language === 'de' ? 'de-DE'
+            : language === 'fr' ? 'fr-FR'
+                : language === 'es' ? 'es-ES'
+                    : 'en-US';
+
+        const assignVoiceAndSpeak = () => {
+            const voice = getVoice(language);
+            if (voice) utterance.voice = voice;
+            window.speechSynthesis.speak(utterance);
+        };
+
+        const voices = window.speechSynthesis.getVoices();
+        if (voices.length) {
+            assignVoiceAndSpeak();
+        } else {
+            window.speechSynthesis.onvoiceschanged = () => {
+                assignVoiceAndSpeak();
+                window.speechSynthesis.onvoiceschanged = null;
+            };
+        }
+    }, []);
     // Prep countdown
     useEffect(() => {
         if (!isPrepping || isPaused) return;

@@ -1,14 +1,13 @@
 import {useTranslation} from 'react-i18next';
-import {ArrowLeft, Play, Plus} from "lucide-react";
+import {Play, Plus} from "lucide-react";
 import {useState} from "react";
 import {useFocusTrap} from "../../hooks/useFocusTrap.js";
 import {useKeydown} from "../../hooks/useKeydown.js";
 import DeleteConfirmModal from "../common/DeleteConfirmModal.jsx";
 import ExerciseItem from "../exercises/ExerciseItem.jsx";
 import ExerciseModal from "../exercises/ExerciseModal.jsx";
+import {ScreenHeader} from "../common/ScreenHeader.jsx";
 import {Footer} from "../common/Footer.jsx";
-import {LanguageToggle} from "../common/LanguageToggle.jsx";
-import {ThemeToggle} from "../common/ThemeToggle.jsx";
 
 const RoutineEditor = ({
                            exercises = [],
@@ -80,38 +79,23 @@ const RoutineEditor = ({
     };
 
     return (
-        <main className="min-h-screen bg-surface-app pb-32">
-            <div className="bg-surface-card border-b border-stroke-default px-6 pt-6 pb-8 mb-6">
-                <div className="flex justify-between items-center mb-6">
-                    <button
-                        onClick={onBack}
-                        className="flex items-center gap-2 text-content-secondary font-bold
-                           hover:text-content-primary transition-colors
-                           focus:outline-none focus:ring-2 focus:ring-brand rounded-icon pr-2"
-                    >
-                        <ArrowLeft size={20}/>
-                        {t('editor.back')}
-                    </button>
-
-                    <div className="flex items-center gap-2">
-                        <ThemeToggle theme={theme} onToggle={toggleTheme}/>
-                        <LanguageToggle/>
-                    </div>
-                </div>
-
-                <div>
-                    <input
-                        type="text"
-                        value={routineName || ""}
-                        onChange={(e) => onUpdateRoutineName(e.target.value)}
-                        placeholder={t('editor.routineNamePlaceholder')}
-                        className="text-3xl font-extrabold text-content-primary bg-transparent outline-none w-full
-                           border-b-2 border-transparent focus:border-brand transition-colors
-                           placeholder:text-content-muted pb-1"
-                    />
-                    <p className="text-content-secondary mt-2">{t('editor.subtitle')}</p>
-                </div>
-            </div>
+        <>
+            <ScreenHeader
+                onBack={onBack}
+                theme={theme}
+                toggleTheme={toggleTheme}
+            >
+                <input
+                    type="text"
+                    value={routineName || ""}
+                    onChange={(e) => onUpdateRoutineName(e.target.value)}
+                    placeholder={t('editor.routineNamePlaceholder')}
+                    className="text-3xl font-extrabold text-content-primary bg-transparent outline-none w-full
+                   border-b-2 border-transparent focus:border-brand transition-colors
+                   placeholder:text-content-muted pb-1"
+                />
+                <p className="text-content-secondary mt-2">{t('editor.subtitle')}</p>
+            </ScreenHeader>
 
             <ul className="max-w-md mx-auto px-4 space-y-3">
                 {exercises.map((ex, idx) => (
@@ -164,7 +148,7 @@ const RoutineEditor = ({
             />
 
             <Footer onOpenLegal={onOpenLegal}/>
-        </main>
+        </>
     );
 };
 

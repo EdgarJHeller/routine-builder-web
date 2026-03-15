@@ -19,7 +19,7 @@ const RoutineItem = ({routine, onSelect, onDelete, showToast}) => {
     };
 
     return (
-        <li className="card hover:bg-surface-subtle hover:border-brand/40 transition-colors overflow-hidden flex items-center pr-2">
+        <li className="card hover:bg-surface-subtle hover:border-brand/40 overflow-hidden flex items-center pr-2">
             <button
                 onClick={onSelect}
                 className="grow flex items-center gap-4 p-4 text-left focus:outline-none transition-colors"

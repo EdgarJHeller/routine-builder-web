@@ -62,7 +62,7 @@ function App() {
                     </LegalModal>
                 )}
 
-                <div className="grow h-full">
+                <main className={`min-h-screen pb-32 relative ${isTraining ? '' : 'bg-surface-app'}`}>
                     {!activeRoutineId ? (
                         <RoutineLibrary
                             routines={routines}
@@ -95,7 +95,8 @@ function App() {
                             toggleTheme={toggleTheme}
                         />
                     )}
-                </div>
+                </main>
+
                 <ImportRoutineModal
                     routine={pendingRoutine}
                     onConfirm={handleImportConfirm}

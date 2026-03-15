@@ -128,26 +128,26 @@
     }
 
     .btn-icon {
-        @apply p-3 text-content-muted rounded-icon transition-colors focus:ring-2;
+        @apply p-3 text-content-muted rounded-icon focus:ring-2;
     }
 
     .btn-icon-brand {
-        @apply p-3 text-content-muted rounded-icon transition-colors focus:ring-2
+        @apply p-3 text-content-muted rounded-icon focus:ring-2
         hover:bg-brand-subtle hover:text-brand-text focus:ring-brand;
     }
 
     .btn-icon-secondary {
-        @apply p-3 text-content-muted rounded-icon transition-colors focus:ring-2
+        @apply p-3 text-content-muted rounded-icon focus:ring-2
         hover:bg-secondary-subtle hover:text-secondary-text focus:ring-secondary;
     }
 
     .btn-icon-success {
-        @apply p-3 text-content-muted rounded-icon transition-colors focus:ring-2
+        @apply p-3 text-content-muted rounded-icon focus:ring-2
         hover:bg-success-subtle hover:text-success-text focus:ring-success;
     }
 
     .btn-icon-danger {
-        @apply p-3 text-content-muted rounded-icon transition-colors focus:ring-2
+        @apply p-3 text-content-muted rounded-icon focus:ring-2
         hover:bg-danger-subtle hover:text-danger-text focus:ring-danger;
     }
 

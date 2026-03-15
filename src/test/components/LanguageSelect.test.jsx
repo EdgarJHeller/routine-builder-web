@@ -1,10 +1,10 @@
 import {describe, expect, it} from 'vitest';
 import {render, screen} from '@testing-library/react';
-import {LanguageToggle} from '../../components/common/LanguageToggle.jsx';
+import {LanguageSelect} from '../../components/common/LanguageSelect.jsx';
 
-describe('LanguageToggle', () => {
+describe('LanguageSelect', () => {
     it('renders all language options', () => {
-        render(<LanguageToggle/>);
+        render(<LanguageSelect/>);
         expect(screen.getByText('EN')).toBeInTheDocument();
         expect(screen.getByText('DE')).toBeInTheDocument();
         expect(screen.getByText('FR')).toBeInTheDocument();
@@ -12,12 +12,12 @@ describe('LanguageToggle', () => {
     });
 
     it('renders a select element', () => {
-        render(<LanguageToggle/>);
+        render(<LanguageSelect/>);
         expect(screen.getByRole('combobox')).toBeInTheDocument();
     });
 
     it('has EN selected by default', () => {
-        render(<LanguageToggle/>);
+        render(<LanguageSelect/>);
         expect(screen.getByRole('combobox')).toHaveValue('en');
     });
 });

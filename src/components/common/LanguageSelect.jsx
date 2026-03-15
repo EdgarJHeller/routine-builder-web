@@ -7,7 +7,7 @@ const LANGUAGES = [
     {code: 'es', label: 'ES'},
 ];
 
-export function LanguageToggle() {
+export function LanguageSelect() {
     const {i18n} = useTranslation();
     const lang = i18n.language?.slice(0, 2);
 
@@ -16,7 +16,7 @@ export function LanguageToggle() {
             value={lang}
             onChange={(e) => i18n.changeLanguage(e.target.value)}
             className="bg-surface-subtle border border-stroke-default shadow-card
-               rounded-icon text-[10px] font-bold text-content-muted hover:text-content-primary
+               rounded-icon text-[10px] font-bold text-content-secondary
                p-2 focus:ring-2 focus:ring-brand outline-none
                cursor-pointer"
             aria-label="Select language"

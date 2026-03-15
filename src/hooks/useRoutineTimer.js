@@ -29,7 +29,7 @@ const useRoutineTimer = (exercises) => {
 
         const utterance = new SpeechSynthesisUtterance(text);
         const config = getLanguageConfig(language);
-        utterance.lang = config.bcp47;
+        utterance.lang = config?.bcp47 ?? 'en-US';
 
         const assignVoiceAndSpeak = () => {
             const voice = getVoice(language);

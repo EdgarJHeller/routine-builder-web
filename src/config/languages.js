@@ -28,4 +28,4 @@ export const LANGUAGES = [
 export const LANGUAGE_CODES = LANGUAGES.map(l => l.code);
 
 export const getLanguageConfig = (code) =>
-    LANGUAGES.find(l => l.code === code) ?? LANGUAGES[0];
+    LANGUAGES.find(l => l.code === code) ?? null;

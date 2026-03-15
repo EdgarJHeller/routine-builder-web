@@ -1,15 +1,11 @@
-const LOCALE_PREFERENCE = {
-    en: ['en-GB', 'en-US', 'en-AU'],
-    de: ['de-DE', 'de-AT', 'de-CH'],
-    fr: ['fr-FR', 'fr-CA', 'fr-BE'],
-    es: ['es-MX', 'es-ES', 'es-US'],
-};
+import {getLanguageConfig} from '../config/languages.js';
 
 export const getVoice = (lang) => {
     const voices = window.speechSynthesis.getVoices();
     if (!voices.length) return null;
 
-    const locales = LOCALE_PREFERENCE[lang] || [`${lang}-${lang.toUpperCase()}`];
+    const config = getLanguageConfig(lang);
+    const locales = config.locales;
 
     const preferred = [
         v => locales.includes(v.lang) && v.name.includes("Google"),

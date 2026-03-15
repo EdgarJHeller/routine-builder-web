@@ -1,11 +1,5 @@
 import {useTranslation} from 'react-i18next';
-
-const LANGUAGES = [
-    {code: 'en', label: 'EN'},
-    {code: 'de', label: 'DE'},
-    {code: 'fr', label: 'FR'},
-    {code: 'es', label: 'ES'},
-];
+import {LANGUAGES} from '../../config/languages.js';
 
 export function LanguageSelect() {
     const {i18n} = useTranslation();

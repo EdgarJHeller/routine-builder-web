@@ -1,24 +1,24 @@
 import i18n from 'i18next';
 import {initReactI18next} from 'react-i18next';
 import LanguageDetector from 'i18next-browser-languagedetector';
+import {LANGUAGE_CODES} from './config/languages.js';
 
-import en from './locales/en.json';
-import de from './locales/de.json';
-import fr from './locales/fr.json';
-import es from './locales/es.json';
+const locales = import.meta.glob('./locales/*.json', { eager: true });
+
+const resources = Object.fromEntries(
+    LANGUAGE_CODES.map(code => [
+        code,
+        { translation: locales[`./locales/${code}.json`]?.default }
+    ])
+);
 
 i18n
     .use(LanguageDetector)
     .use(initReactI18next)
     .init({
-        resources: {
-            en: {translation: en},
-            de: {translation: de},
-            fr: {translation: fr},
-            es: {translation: es},
-        },
+        resources,
         fallbackLng: 'en',
-        supportedLngs: ['en', 'de', 'fr', 'es'],
+        supportedLngs: LANGUAGE_CODES,
         interpolation: {
             escapeValue: false,
         },

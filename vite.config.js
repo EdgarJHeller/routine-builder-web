@@ -17,19 +17,13 @@ export default defineConfig({
                 display: 'standalone',
                 icons: [
                     {
-                        src: 'routine-editor-logo-svg.svg',
-                        sizes: 'any',
-                        type: 'image/svg+xml',
-                        purpose: 'any maskable'
-                    },
-                    {
-                        src: 'android-chrome-192x192.png',
+                        src: 'web-app-manifest-192x192.png',
                         sizes: '192x192',
                         type: 'image/png',
                         purpose: 'any'
                     },
                     {
-                        src: 'android-chrome-512x512.png',
+                        src: 'web-app-manifest-512x512.png',
                         sizes: '512x512',
                         type: 'image/png',
                         purpose: 'any maskable'

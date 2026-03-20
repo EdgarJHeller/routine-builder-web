@@ -1,5 +1,6 @@
 import {useTranslation} from 'react-i18next';
 import {useState} from "react";
+import {track} from '@vercel/analytics';
 import LegalModal from "./components/common/LegalModal.jsx";
 import RoutineEditor from "./components/routines/RoutineEditor.jsx";
 import RoutineLibrary from "./components/routines/RoutineLibrary.jsx";
@@ -11,6 +12,8 @@ import {useMagicLink} from "./hooks/useMagicLink.js";
 import {useToast} from "./hooks/useToast.js";
 import {Toast} from "./components/common/Toast.jsx";
 import {ImportRoutineModal} from "./components/routines/ImportRoutineModal.jsx";
+
+const isVercel = import.meta.env.VERCEL === '1';
 
 function App() {
     const {t} = useTranslation();
@@ -48,6 +51,17 @@ function App() {
         showToast(t('library.importSuccess', {name: pendingRoutine.name}));
     };
 
+    const handleImportFromCatalog = (translated, catalogId) => {
+        const newRoutine = {
+            id: crypto.randomUUID(),
+            name: translated.name,
+            exercises: translated.exercises,
+        };
+        setRoutines(prev => [...prev, newRoutine]);
+        showToast(t('library.importSuccess', {name: translated.name}));
+        if (isVercel) track('catalog_import', {routineId: catalogId});
+    };
+
     return (
         <div className="min-h-screen bg-surface-app flex justify-center items-start">
             <div className="w-full max-w-md min-h-screen bg-surface-card shadow-xl overflow-hidden relative">
@@ -75,12 +89,12 @@ function App() {
                                 onSelectRoutine={setActiveRoutineId}
                                 onCreateRoutine={createNewRoutine}
                                 onDeleteRoutine={deleteRoutine}
+                                onImportFromCatalog={handleImportFromCatalog}
                                 onOpenLegal={setActiveLegalPage}
                                 theme={theme}
                                 toggleTheme={toggleTheme}
                                 showToast={showToast}
                             />
-
                         ) : (
                             <RoutineEditor
                                 exercises={currentExercises}
@@ -96,7 +110,6 @@ function App() {
                                 theme={theme}
                                 toggleTheme={toggleTheme}
                             />
-
                         )}
                     </main>
                 )}

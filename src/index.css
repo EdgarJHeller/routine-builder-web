@@ -168,6 +168,15 @@
         hover:bg-surface-subtle rounded-icon
         focus:ring-2 focus:ring-brand outline-none;
     }
+
+    .catalog-scroll {
+        overflow-y: auto;
+        scrollbar-width: none; /* Firefox */
+    }
+
+    .catalog-scroll::-webkit-scrollbar {
+        display: none; /* Chrome/Safari */
+    }
 }
 
 /* ─── Dark Mode (system) ────────────────────────────────────────────────────

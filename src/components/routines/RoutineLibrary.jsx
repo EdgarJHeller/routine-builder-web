@@ -6,12 +6,14 @@ import DeleteConfirmModal from "../common/DeleteConfirmModal.jsx";
 import RoutineItem from "./RoutineItem.jsx";
 import {ScreenHeader} from "../common/ScreenHeader.jsx";
 import {Footer} from "../common/Footer.jsx";
+import AddRoutineModal from "./AddRoutineModal.jsx";
 
 const RoutineLibrary = ({
                             routines,
                             onSelectRoutine,
                             onCreateRoutine,
                             onDeleteRoutine,
+                            onImportFromCatalog,
                             onOpenLegal,
                             theme,
                             toggleTheme,
@@ -19,6 +21,7 @@ const RoutineLibrary = ({
                         }) => {
     const {t} = useTranslation();
     const [routineToDelete, setRoutineToDelete] = useState(null);
+    const [isAddModalOpen, setIsAddModalOpen] = useState(false);
     const deleteModalRef = useFocusTrap(!!routineToDelete);
 
     const confirmDelete = () => {
@@ -49,7 +52,7 @@ const RoutineLibrary = ({
                 ))}
 
                 <li>
-                    <button onClick={onCreateRoutine} className="btn-add mt-4">
+                    <button onClick={() => setIsAddModalOpen(true)} className="btn-add mt-4">
                         <Plus size={20}/> {t('library.addRoutine')}
                     </button>
                 </li>
@@ -63,6 +66,20 @@ const RoutineLibrary = ({
             />
 
             <Footer onOpenLegal={onOpenLegal}/>
+
+            {isAddModalOpen && (
+                <AddRoutineModal
+                    onClose={() => setIsAddModalOpen(false)}
+                    onCreateEmpty={() => {
+                        onCreateRoutine();
+                        setIsAddModalOpen(false);
+                    }}
+                    onImportFromCatalog={(translated, catalogId) => {
+                        onImportFromCatalog(translated, catalogId);
+                        setIsAddModalOpen(false);
+                    }}
+                />
+            )}
         </>
     );
 };

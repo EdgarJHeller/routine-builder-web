@@ -47,6 +47,12 @@
     "dismiss": "Ignorar",
     "newRoutine": "Nueva rutina"
   },
+  "catalog": {
+    "title": "Añadir rutina",
+    "import": "Importar",
+    "loading": "Cargando catálogo...",
+    "error": "No se pudo cargar el catálogo."
+  },
   "routine": {
     "screenTitle": "Rutina en curso",
     "nextUp": "A continuación",

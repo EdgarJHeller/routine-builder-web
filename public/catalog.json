@@ -1,0 +1,97 @@
+{
+  "version": 1,
+  "routines": [
+    {
+      "id": "catalog-1",
+      "tags": ["stretch", "desk"],
+      "translations": {
+        "en": {
+          "name": "Desk Reset",
+          "exercises": [
+            {"id": "c1-e1", "name": "Neck Side Stretch", "durationSeconds": 30, "isSideSwitchRequired": true},
+            {"id": "c1-e2", "name": "Shoulder Rolls", "durationSeconds": 20, "isSideSwitchRequired": false},
+            {"id": "c1-e3", "name": "Chest Opener", "durationSeconds": 30, "isSideSwitchRequired": false},
+            {"id": "c1-e4", "name": "Seated Spinal Twist", "durationSeconds": 40, "isSideSwitchRequired": true},
+            {"id": "c1-e5", "name": "Hip Flexor Stretch", "durationSeconds": 30, "isSideSwitchRequired": true}
+          ]
+        },
+        "de": {
+          "name": "Schreibtisch-Reset",
+          "exercises": [
+            {"id": "c1-e1", "name": "Seitliche Nackendehnung", "durationSeconds": 30, "isSideSwitchRequired": true},
+            {"id": "c1-e2", "name": "Schulterkreisen", "durationSeconds": 20, "isSideSwitchRequired": false},
+            {"id": "c1-e3", "name": "Brustöffner", "durationSeconds": 30, "isSideSwitchRequired": false},
+            {"id": "c1-e4", "name": "Sitzende Wirbelsäulendrehung", "durationSeconds": 40, "isSideSwitchRequired": true},
+            {"id": "c1-e5", "name": "Hüftbeuger-Stretch", "durationSeconds": 30, "isSideSwitchRequired": true}
+          ]
+        },
+        "es": {
+          "name": "Reset de escritorio",
+          "exercises": [
+            {"id": "c1-e1", "name": "Estiramiento lateral del cuello", "durationSeconds": 30, "isSideSwitchRequired": true},
+            {"id": "c1-e2", "name": "Rotación de hombros", "durationSeconds": 20, "isSideSwitchRequired": false},
+            {"id": "c1-e3", "name": "Apertura de pecho", "durationSeconds": 30, "isSideSwitchRequired": false},
+            {"id": "c1-e4", "name": "Torsión espinal sentado", "durationSeconds": 40, "isSideSwitchRequired": true},
+            {"id": "c1-e5", "name": "Estiramiento del flexor de cadera", "durationSeconds": 30, "isSideSwitchRequired": true}
+          ]
+        },
+        "fr": {
+          "name": "Pause bureau",
+          "exercises": [
+            {"id": "c1-e1", "name": "Étirement latéral du cou", "durationSeconds": 30, "isSideSwitchRequired": true},
+            {"id": "c1-e2", "name": "Rotations des épaules", "durationSeconds": 20, "isSideSwitchRequired": false},
+            {"id": "c1-e3", "name": "Ouverture de la poitrine", "durationSeconds": 30, "isSideSwitchRequired": false},
+            {"id": "c1-e4", "name": "Torsion vertébrale assise", "durationSeconds": 40, "isSideSwitchRequired": true},
+            {"id": "c1-e5", "name": "Étirement du fléchisseur de hanche", "durationSeconds": 30, "isSideSwitchRequired": true}
+          ]
+        }
+      }
+    },
+    {
+      "id": "catalog-2",
+      "tags": ["music", "warmup"],
+      "translations": {
+        "en": {
+          "name": "Musician's Hand Warm-up",
+          "exercises": [
+            {"id": "c2-e1", "name": "Finger Stretches", "durationSeconds": 30, "isSideSwitchRequired": false},
+            {"id": "c2-e2", "name": "Wrist Circles", "durationSeconds": 30, "isSideSwitchRequired": true},
+            {"id": "c2-e3", "name": "Thumb Opposition", "durationSeconds": 20, "isSideSwitchRequired": false},
+            {"id": "c2-e4", "name": "Forearm Flexor Stretch", "durationSeconds": 30, "isSideSwitchRequired": true},
+            {"id": "c2-e5", "name": "Finger Taps", "durationSeconds": 20, "isSideSwitchRequired": false}
+          ]
+        },
+        "de": {
+          "name": "Musiker-Handwarm-up",
+          "exercises": [
+            {"id": "c2-e1", "name": "Finger strecken", "durationSeconds": 30, "isSideSwitchRequired": false},
+            {"id": "c2-e2", "name": "Handgelenkkreisen", "durationSeconds": 30, "isSideSwitchRequired": true},
+            {"id": "c2-e3", "name": "Daumenopposition", "durationSeconds": 20, "isSideSwitchRequired": false},
+            {"id": "c2-e4", "name": "Unterarm-Beugestretch", "durationSeconds": 30, "isSideSwitchRequired": true},
+            {"id": "c2-e5", "name": "Finger-Tapping", "durationSeconds": 20, "isSideSwitchRequired": false}
+          ]
+        },
+        "es": {
+          "name": "Calentamiento de manos para músicos",
+          "exercises": [
+            {"id": "c2-e1", "name": "Estiramientos de dedos", "durationSeconds": 30, "isSideSwitchRequired": false},
+            {"id": "c2-e2", "name": "Círculos de muñeca", "durationSeconds": 30, "isSideSwitchRequired": true},
+            {"id": "c2-e3", "name": "Oposición de pulgar", "durationSeconds": 20, "isSideSwitchRequired": false},
+            {"id": "c2-e4", "name": "Estiramiento del flexor del antebrazo", "durationSeconds": 30, "isSideSwitchRequired": true},
+            {"id": "c2-e5", "name": "Golpeteo de dedos", "durationSeconds": 20, "isSideSwitchRequired": false}
+          ]
+        },
+        "fr": {
+          "name": "Échauffement des mains pour musiciens",
+          "exercises": [
+            {"id": "c2-e1", "name": "Étirements des doigts", "durationSeconds": 30, "isSideSwitchRequired": false},
+            {"id": "c2-e2", "name": "Rotations des poignets", "durationSeconds": 30, "isSideSwitchRequired": true},
+            {"id": "c2-e3", "name": "Opposition du pouce", "durationSeconds": 20, "isSideSwitchRequired": false},
+            {"id": "c2-e4", "name": "Étirement des fléchisseurs de l'avant-bras", "durationSeconds": 30, "isSideSwitchRequired": true},
+            {"id": "c2-e5", "name": "Tapotements des doigts", "durationSeconds": 20, "isSideSwitchRequired": false}
+          ]
+        }
+      }
+    }
+  ]
+}

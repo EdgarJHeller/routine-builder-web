@@ -47,6 +47,12 @@
     "dismiss": "Ignorer",
     "newRoutine": "Nouvelle routine"
   },
+  "catalog": {
+    "title": "Ajouter une routine",
+    "import": "Importer",
+    "loading": "Chargement du catalogue...",
+    "error": "Impossible de charger le catalogue."
+  },
   "routine": {
     "screenTitle": "Routine en cours",
     "nextUp": "Exercice suivant",

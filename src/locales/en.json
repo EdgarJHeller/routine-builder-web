@@ -47,6 +47,12 @@
     "dismiss": "Dismiss",
     "newRoutine": "New Routine"
   },
+  "catalog": {
+    "title": "Add Routine",
+    "import": "Import",
+    "loading": "Loading catalog...",
+    "error": "Could not load catalog."
+  },
   "routine": {
     "screenTitle": "Routine in Progress",
     "nextUp": "Next Up",

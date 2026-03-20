@@ -47,6 +47,12 @@
     "dismiss": "Ablehnen",
     "newRoutine": "Neue Routine"
   },
+  "catalog": {
+    "title": "Routine hinzufügen",
+    "import": "Importieren",
+    "loading": "Katalog wird geladen...",
+    "error": "Katalog konnte nicht geladen werden."
+  },
   "routine": {
     "screenTitle": "Übung läuft",
     "nextUp": "Nächste Übung",

@@ -124,7 +124,7 @@
         text-content-secondary font-bold
         flex items-center justify-center gap-2
         hover:border-brand hover:text-brand
-        focus:ring-2 focus:ring-brand;
+        focus:ring-2 focus:ring-brand outline-none;
     }
 
     .btn-icon {

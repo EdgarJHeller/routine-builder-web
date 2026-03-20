@@ -19,10 +19,10 @@ const RoutineItem = ({routine, onSelect, onDelete, showToast}) => {
     };
 
     return (
-        <li className="card hover:bg-surface-subtle hover:border-brand/40 overflow-hidden flex items-center pr-2">
+        <li className="card hover:bg-surface-subtle hover:border-brand/40 overflow-visible flex items-center pr-2">
             <button
                 onClick={onSelect}
-                className="grow flex items-center gap-4 p-4 text-left focus:outline-none transition-colors"
+                className="grow flex items-center gap-4 p-4 text-left focus:outline-none focus:ring-2 focus:ring-brand focus:rounded-card transition-colors"
                 aria-label={`Edit ${routine.name}`}>
                 <div
                     className="w-12 h-12 bg-surface-subtle rounded-icon flex items-center justify-center text-content-muted shrink-0">

@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="512" height="512" viewBox="0 0 512 512" aria-label="Routine Editor" role="img"><rect x="0" y="0" width="512" height="512" rx="115.2" fill="#2563eb"></rect><circle cx="256" cy="256" r="174.08" fill="none" stroke="white" stroke-width="22.528" stroke-opacity="0.2"></circle><path d="M256,81.92 A174.08,174.08 0 1,1 132.907,132.907" fill="none" stroke="white" stroke-width="22.528" stroke-linecap="round"></path><foreignObject x="106" y="106" width="300" height="300">
+        <div xmlns="http://www.w3.org/1999/xhtml" style="
+            width: 300px;
+            height: 300px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'DM Sans', Arial Black, sans-serif;
+            font-size: 200px;
+            font-weight: 700;
+            color: white;
+            line-height: 1;
+        ">R</div>
+    </foreignObject></svg>

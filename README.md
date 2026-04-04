@@ -17,9 +17,10 @@ A minimalist routine builder and timer. Designed for focus, this app avoids the 
 * **High-Contrast Timer:** Large, glanceable typography designed for visibility from across the room.
 * **Progress Visualization:** An SVG-based circular progress ring tracking set completion.
 * **Side-Switch Alerts:** Timer pauses mid-set with an audio cue for exercises requiring a side switch.
-* **Routine Sharing:** Share routines via a link — recipients get a preview before importing.
+* **Routine Sharing:** Share routines via a short link — recipients get a preview before importing. Links expire after 90 days.
+* **Local-First Privacy:** All routine data is stored in your browser's `localStorage` — no accounts required.
 * **Keyboard Navigation:** Full support for building routines using only your keyboard.
-* **Local-First Privacy:** All routine data is stored in your browser's `localStorage` — no accounts or servers required.
+* **Local-First Privacy:** All routine data is stored in your browser's `localStorage` — no accounts required.
 * **Dark Mode:** Three-way toggle — follows system preference by default, with manual light/dark override persisted via `localStorage`.
 * **Multilingual:** Full support for English, German, Spanish, and French.
 
@@ -34,6 +35,8 @@ A minimalist routine builder and timer. Designed for focus, this app avoids the 
 * **CI:** GitHub Actions + [Codecov](https://codecov.io)
 * **Analytics:** [Vercel Analytics](https://vercel.com/analytics) — anonymous, no accounts
 * **Storage:** Browser `localStorage`
+* **Backend:** [Vercel Serverless Functions](https://vercel.com/docs/functions)
+* **Storage:** Browser `localStorage` + [Upstash Redis](https://upstash.com/) for shared routine links
 
 ## 🚀 Getting Started
 
@@ -57,8 +60,9 @@ npm install
 
 3.  **Run the development server:**
 ```bash
-npm run dev
+vercel dev
 ```
+> Requires [Vercel CLI](https://vercel.com/docs/cli) (`npm install -g vercel`) and a `.env.local` with `UPSTASH_REDIS_REST_URL` and `UPSTASH_REDIS_REST_TOKEN`.
 
 4.  **Build for production:**
 ```bash
@@ -75,8 +79,11 @@ npm run test:run
 npm run test:coverage
 ```
 
-## 📂 Project Structure
+## 📁 Project Structure
 ```text
+api/
+└── share.js        # Serverless endpoint for creating and retrieving shared routine links (POST/GET)
+
 public/
 └── catalog.json    # Curated routine catalog (fetched lazily on demand)
 
@@ -94,7 +101,7 @@ src/
 ├── App.jsx         # Main application entry and state orchestration
 └── main.jsx        # React DOM rendering and global imports
 
-index.css           # Tailwind @theme design tokens — single source of truth
+index.css           # Tailwind @theme design tokens → single source of truth
                     # for all colors, border radii, and shadows.
 ```
 

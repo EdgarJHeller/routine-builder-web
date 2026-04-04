@@ -5,17 +5,21 @@ import {formatDuration} from "../../utils/formatDuration.js";
 const RoutineItem = ({routine, onSelect, onDelete, showToast}) => {
     const {t} = useTranslation();
 
-    const handleShare = (e) => {
+    const handleShare = async (e) => {
         e.stopPropagation();
-        try {
-            const encoded = btoa(encodeURIComponent(JSON.stringify(routine)));
-            const shareUrl = `${window.location.origin}${window.location.pathname}?routine=${encoded}`;
-            navigator.clipboard.writeText(shareUrl).then(() => {
-                showToast(t('library.linkCopied'));
-            });
-        } catch (error) {
-            console.error("Fehler beim Erstellen des Links", error);
+        const res = await fetch("/api/share", {
+            method: "POST",
+            headers: {"Content-Type": "application/json"},
+            body: JSON.stringify(routine),
+        });
+        if (!res.ok) {
+            showToast(t('library.shareFailed'));
+            return;
         }
+        const {id} = await res.json();
+        const shareUrl = `${window.location.origin}${window.location.pathname}?r=${id}`;
+        await navigator.clipboard.writeText(shareUrl);
+        showToast(t('library.linkCopied'));
     };
 
     return (

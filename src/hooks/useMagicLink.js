@@ -1,20 +1,28 @@
 import {useState} from "react";
 
-export const useMagicLink = () => {
-    const [pendingRoutine, setPendingRoutine] = useState(() => {
-        const params = new URLSearchParams(window.location.search);
-        const sharedRoutineData = params.get("routine");
+const fetchSharedRoutine = async (id) => {
+    const res = await fetch(`/api/share?id=${id}`);
+    if (!res.ok) throw new Error("Routine not found or expired");
+    return res.json();
+};
 
-        if (sharedRoutineData) {
-            window.history.replaceState({}, document.title, window.location.pathname);
-            try {
-                return JSON.parse(decodeURIComponent(atob(sharedRoutineData)));
-            } catch (error) {
-                console.error("Fehler beim Importieren der Routine:", error);
-            }
-        }
-        return null;
+export const useMagicLink = () => {
+    const [pendingRoutine, setPendingRoutine] = useState(null);
+    const [isLoadingSharedRoutine, setIsLoadingSharedRoutine] = useState(() => {
+        const params = new URLSearchParams(window.location.search);
+        return !!params.get("r");
     });
 
-    return {pendingRoutine, setPendingRoutine};
+    useState(() => {
+        const params = new URLSearchParams(window.location.search);
+        const id = params.get("r");
+        if (!id) return;
+        window.history.replaceState({}, document.title, window.location.pathname);
+        fetchSharedRoutine(id)
+            .then(setPendingRoutine)
+            .catch((err) => console.error("Fehler beim Importieren der Routine:", err))
+            .finally(() => setIsLoadingSharedRoutine(false));
+    });
+
+    return {pendingRoutine, setPendingRoutine, isLoadingSharedRoutine};
 };
